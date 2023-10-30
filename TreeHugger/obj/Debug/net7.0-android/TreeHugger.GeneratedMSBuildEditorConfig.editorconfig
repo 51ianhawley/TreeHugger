@@ -55,3 +55,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.SocialPage.xaml
 build_metadata.AdditionalFiles.TargetPath = SocialPage.xaml
 build_metadata.AdditionalFiles.RelativePath = SocialPage.xaml
+
+[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/StatisticsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.StatisticsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = StatisticsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = StatisticsPage.xaml

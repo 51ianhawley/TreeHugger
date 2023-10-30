@@ -6,10 +6,10 @@
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
              android:TabbedPage.ToolbarPlacement="Bottom">
     <TabbedPage.Children>
-        <!-- Tab for the profile page -->
-        <NavigationPage Title="Profile Page">
+        <!-- Tab for the Statistics page -->
+        <NavigationPage Title="Statistics Page">
             <x:Arguments>
-                <local:ProfilePage />
+                <local:StatisticsPage />
             </x:Arguments>
         </NavigationPage>
 
