@@ -12,51 +12,51 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = TreeHugger
-build_property.ProjectDir = /Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/
+build_property.ProjectDir = C:\Users\51Ian\source\repos\51ianhawley\TreeHugger\TreeHugger\
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/App.xaml]
+[C:/Users/51Ian/source/repos/51ianhawley/TreeHugger/TreeHugger/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/MainTabbedPage.xaml]
+[C:/Users/51Ian/source/repos/51ianhawley/TreeHugger/TreeHugger/MainTabbedPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.MainTabbedPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainTabbedPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainTabbedPage.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/MapPage.xaml]
+[C:/Users/51Ian/source/repos/51ianhawley/TreeHugger/TreeHugger/MapPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.MapPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MapPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MapPage.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/ProfilePage.xaml]
+[C:/Users/51Ian/source/repos/51ianhawley/TreeHugger/TreeHugger/ProfilePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.ProfilePage.xaml
 build_metadata.AdditionalFiles.TargetPath = ProfilePage.xaml
 build_metadata.AdditionalFiles.RelativePath = ProfilePage.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/Resources/Styles/Colors.xaml]
+[C:/Users/51Ian/source/repos/51ianhawley/TreeHugger/TreeHugger/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.Resources.Styles.Colors.xaml
-build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
-build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/Resources/Styles/Styles.xaml]
+[C:/Users/51Ian/source/repos/51ianhawley/TreeHugger/TreeHugger/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.Resources.Styles.Styles.xaml
-build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
-build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/SocialPage.xaml]
+[C:/Users/51Ian/source/repos/51ianhawley/TreeHugger/TreeHugger/SocialPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.SocialPage.xaml
 build_metadata.AdditionalFiles.TargetPath = SocialPage.xaml
 build_metadata.AdditionalFiles.RelativePath = SocialPage.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/StatisticsPage.xaml]
+[C:/Users/51Ian/source/repos/51ianhawley/TreeHugger/TreeHugger/StatisticsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.StatisticsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = StatisticsPage.xaml
