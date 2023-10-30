@@ -18450,11 +18450,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/aldensprackling/Desktop/TreeHugger/TreeHugger/TreeHugger.csproj",
+      "projectUniqueName": "/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/TreeHugger.csproj",
       "projectName": "TreeHugger",
-      "projectPath": "/Users/aldensprackling/Desktop/TreeHugger/TreeHugger/TreeHugger.csproj",
+      "projectPath": "/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/TreeHugger.csproj",
       "packagesPath": "/Users/aldensprackling/.nuget/packages/",
-      "outputPath": "/Users/aldensprackling/Desktop/TreeHugger/TreeHugger/obj/",
+      "outputPath": "/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/obj/",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "configFilePaths": [

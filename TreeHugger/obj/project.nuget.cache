@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "anjxbwB+eYesgKyJaifrARc2Wjr0sdlQm2PcutO1LTxoAhNS8Om7bkLYGPnDN0SooB/uYK1iicCBxj+xB9xlJQ==",
+  "dgSpecHash": "ZXrCL9yjFrf3pzZ9gIF+Kn2xuH18N+egH4ZQk1/Y40/aTUh5sqHkt2Sp219K3lzjKRqTo/46BFL6oEhgmBsgCQ==",
   "success": true,
-  "projectFilePath": "/Users/aldensprackling/Desktop/TreeHugger/TreeHugger/TreeHugger.csproj",
+  "projectFilePath": "/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/TreeHugger.csproj",
   "expectedPackageFiles": [
     "/Users/aldensprackling/.nuget/packages/googlegson/2.9.1.1/googlegson.2.9.1.1.nupkg.sha512",
     "/Users/aldensprackling/.nuget/packages/microsoft.extensions.configuration/7.0.0/microsoft.extensions.configuration.7.0.0.nupkg.sha512",
