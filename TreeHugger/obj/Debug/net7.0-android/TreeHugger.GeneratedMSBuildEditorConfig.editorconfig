@@ -20,12 +20,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[/Users/aldensprackling/Desktop/TreeHugger/TreeHugger/AppShell.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.AppShell.xaml
-build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
-build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
-
 [/Users/aldensprackling/Desktop/TreeHugger/TreeHugger/MainTabbedPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.MainTabbedPage.xaml
