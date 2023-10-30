@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TreeHugger.MainTabbedPage"
+             xmlns:local="clr-namespace:TreeHugger"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             android:TabbedPage.ToolbarPlacement="Bottom">
+    <TabbedPage.Children>
+        <!-- Tab for the profile page -->
+        <NavigationPage Title="Profile Page">
+            <x:Arguments>
+                <local:ProfilePage />
+            </x:Arguments>
+        </NavigationPage>
+
+    <!-- Tab for the map page (set as current page to display first) -->
+        <NavigationPage Title="Map Page">
+            <x:Arguments>
+                <local:MapPage />
+            </x:Arguments>
+        </NavigationPage>
+
+    <!-- Tab for the social page -->
+        <NavigationPage Title="Social Page">
+            <x:Arguments>
+                <local:SocialPage />
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>
+</TabbedPage>
