@@ -1,5 +1,6 @@
 ﻿#if IOS || ANDROID || MACCATALYST
 using Microsoft.Maui.Graphics.Platform;
+using Microsoft.Maui.Platform;
 #elif WINDOWS
 using Microsoft.Maui.Graphics.Win2D;
 #endif
@@ -11,12 +12,15 @@ namespace TreeHugger.Drawable;
 public class StickFigure : IDrawable
 {
     List<int> toBeDrawn = new List<int>();
+    List<Item> ownedItems = new List<Item>();
     public List<int> ToBeDrawn
     {
         get { return toBeDrawn; }
         set { toBeDrawn = value; }
     }
+    public List<Item> OwnedItems{ get { return ownedItems; } }
     List<Item> items = new List<Item>();
+    
 
     public StickFigure()
     {
@@ -38,6 +42,10 @@ public class StickFigure : IDrawable
         size[0] = 25;
         size[1] = 25;
         items.Add(new Item("scared_face_hi", 0, new List<int>(offset), new List<int>(size)));
+    }
+    public void AddOwnedItem(int index)
+    {
+        OwnedItems.Add(items[index]);
     }
     public void Draw(ICanvas canvas, RectF dirtyRect)
     {

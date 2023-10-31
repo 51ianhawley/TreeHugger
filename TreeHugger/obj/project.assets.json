@@ -649,7 +649,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.targets": {}
         }
       },
-      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
+      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
         "type": "package",
         "compile": {
           "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll": {
@@ -663,6 +663,22 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets": {}
         }
       },
       "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -2717,7 +2733,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.targets": {}
         }
       },
-      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
+      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
         "type": "package",
         "compile": {
           "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll": {
@@ -2731,6 +2747,22 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets": {}
         }
       },
       "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -4785,7 +4817,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.targets": {}
         }
       },
-      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
+      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
         "type": "package",
         "compile": {
           "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll": {
@@ -4799,6 +4831,22 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets": {}
         }
       },
       "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -6853,7 +6901,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.targets": {}
         }
       },
-      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
+      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
         "type": "package",
         "compile": {
           "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll": {
@@ -6867,6 +6915,22 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets": {}
         }
       },
       "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -8921,7 +8985,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.targets": {}
         }
       },
-      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
+      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
         "type": "package",
         "compile": {
           "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll": {
@@ -8935,6 +8999,22 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets": {}
         }
       },
       "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -10989,7 +11069,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.targets": {}
         }
       },
-      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
+      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
         "type": "package",
         "compile": {
           "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll": {
@@ -11003,6 +11083,22 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets": {}
         }
       },
       "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -13057,7 +13153,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.targets": {}
         }
       },
-      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
+      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
         "type": "package",
         "compile": {
           "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll": {
@@ -13071,6 +13167,22 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets": {}
         }
       },
       "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -15125,7 +15237,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.targets": {}
         }
       },
-      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
+      "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
         "type": "package",
         "compile": {
           "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll": {
@@ -15139,6 +15251,22 @@
         },
         "build": {
           "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.targets": {}
+        }
+      },
+      "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets": {}
         }
       },
       "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -20574,6 +20702,38 @@
             "related": ".xml"
           }
         }
+      },
+      "SharpConstraintLayout.Core/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SharpConstraintLayout.Wpf/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpConstraintLayout.Core": "1.1.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net7.0-windows10.0.19041/android-arm": {
@@ -20913,6 +21073,38 @@
             "related": ".xml"
           }
         }
+      },
+      "SharpConstraintLayout.Core/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SharpConstraintLayout.Wpf/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpConstraintLayout.Core": "1.1.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net7.0-windows10.0.19041/android-arm64": {
@@ -21252,6 +21444,38 @@
             "related": ".xml"
           }
         }
+      },
+      "SharpConstraintLayout.Core/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SharpConstraintLayout.Wpf/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpConstraintLayout.Core": "1.1.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net7.0-windows10.0.19041/android-x64": {
@@ -21591,6 +21815,38 @@
             "related": ".xml"
           }
         }
+      },
+      "SharpConstraintLayout.Core/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SharpConstraintLayout.Wpf/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpConstraintLayout.Core": "1.1.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net7.0-windows10.0.19041/android-x86": {
@@ -21930,6 +22186,38 @@
             "related": ".xml"
           }
         }
+      },
+      "SharpConstraintLayout.Core/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SharpConstraintLayout.Wpf/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpConstraintLayout.Core": "1.1.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net7.0-windows10.0.19041/iossimulator-x64": {
@@ -22269,6 +22557,38 @@
             "related": ".xml"
           }
         }
+      },
+      "SharpConstraintLayout.Core/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SharpConstraintLayout.Wpf/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpConstraintLayout.Core": "1.1.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net7.0-windows10.0.19041/maccatalyst-x64": {
@@ -22608,6 +22928,38 @@
             "related": ".xml"
           }
         }
+      },
+      "SharpConstraintLayout.Core/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SharpConstraintLayout.Wpf/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpConstraintLayout.Core": "1.1.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     },
     "net7.0-windows10.0.19041/win10-x64": {
@@ -22953,6 +23305,38 @@
             "related": ".xml"
           }
         }
+      },
+      "SharpConstraintLayout.Core/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpConstraintLayout.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SharpConstraintLayout.Wpf/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpConstraintLayout.Core": "1.1.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -24297,6 +24681,32 @@
         "postgresql.png"
       ]
     },
+    "SharpConstraintLayout.Core/1.1.0": {
+      "sha512": "rvlSlZp13ozXHfAdg8rl7gzfDOuNl8plDqa05AiAekgU3oObgw6NLhSQVfSTXcZbhHMeGipvbve+2GoeyHyaew==",
+      "type": "package",
+      "path": "sharpconstraintlayout.core/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SharpConstraintLayout.Core.dll",
+        "lib/netstandard2.0/SharpConstraintLayout.Core.xml",
+        "sharpconstraintlayout.core.1.1.0.nupkg.sha512",
+        "sharpconstraintlayout.core.nuspec"
+      ]
+    },
+    "SharpConstraintLayout.Wpf/1.5.0": {
+      "sha512": "H1LlVenhYb3/sZaj/NGOxb4dMUfZOYPCmPV0ay+Ma3dGTPaIutgmUwqD/6JUmSNN+pmBJLT+49FTcrSNexpXKQ==",
+      "type": "package",
+      "path": "sharpconstraintlayout.wpf/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.dll",
+        "lib/net5.0-windows7.0/SharpConstraintLayout.Wpf.xml",
+        "sharpconstraintlayout.wpf.1.5.0.nupkg.sha512",
+        "sharpconstraintlayout.wpf.nuspec"
+      ]
+    },
     "Xamarin.Android.Glide/4.13.2.2": {
       "sha512": "Z//Q0sKJ97g8wxuJ3z1kka76sSUHA7WGV7yUPGS7IwwciHrPxpEwEju5cxBAbwqYd2+Ug1ecvW3X+q5/tUh6cw==",
       "type": "package",
@@ -24761,10 +25171,10 @@
         "xamarin.androidx.constraintlayout.nuspec"
       ]
     },
-    "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.1": {
-      "sha512": "F8siQktuLtkMbnwJeccaVaLoO8A7OycRpzRt2WHoVNMqrMDre7AagtoY3VwXSC3v0Gzi14EgMu5T2a688Ke2bQ==",
+    "Xamarin.AndroidX.ConstraintLayout.Core/1.0.4.8": {
+      "sha512": "hi7hE5sf006mKd+KIqE8U5447Ps1j0ixfblMw+5edVJm3mG8d32T6iqozAKPAXfWFTrB6kNkNzQqwixRvevoFA==",
       "type": "package",
-      "path": "xamarin.androidx.constraintlayout.core/1.0.4.1",
+      "path": "xamarin.androidx.constraintlayout.core/1.0.4.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -24782,8 +25192,35 @@
         "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.dll",
         "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.pdb",
         "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Core.xml",
-        "xamarin.androidx.constraintlayout.core.1.0.4.1.nupkg.sha512",
+        "readme.md",
+        "xamarin.androidx.constraintlayout.core.1.0.4.8.nupkg.sha512",
         "xamarin.androidx.constraintlayout.core.nuspec"
+      ]
+    },
+    "Xamarin.AndroidX.ConstraintLayout.Solver/2.0.4.16": {
+      "sha512": "aDHxokx0VVYu1ae+CJSpQ21z0xjANP7nDPEJeZqLa+WNnCfOcMJ+C2UbzJafmSDI5asSGnVT/O2hKYORTtDgYQ==",
+      "type": "package",
+      "path": "xamarin.androidx.constraintlayout.solver/2.0.4.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/monoandroid12.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets",
+        "build/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets",
+        "buildTransitive/monoandroid12.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets",
+        "buildTransitive/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.targets",
+        "icon.png",
+        "jar/androidx.constraintlayout.constraintlayout-solver.jar",
+        "lib/monoandroid12.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll",
+        "lib/monoandroid12.0/Xamarin.AndroidX.ConstraintLayout.Solver.pdb",
+        "lib/monoandroid12.0/Xamarin.AndroidX.ConstraintLayout.Solver.xml",
+        "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.dll",
+        "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.pdb",
+        "lib/net6.0-android31.0/Xamarin.AndroidX.ConstraintLayout.Solver.xml",
+        "readme.md",
+        "xamarin.androidx.constraintlayout.solver.2.0.4.16.nupkg.sha512",
+        "xamarin.androidx.constraintlayout.solver.nuspec"
       ]
     },
     "Xamarin.AndroidX.CoordinatorLayout/1.2.0.3": {
@@ -26424,6 +26861,8 @@
       "Npgsql >= 7.0.6",
       "Xamarin.Android.Glide >= 4.13.2.2",
       "Xamarin.AndroidX.Browser >= 1.4.0.3",
+      "Xamarin.AndroidX.ConstraintLayout.Core >= 1.0.4.8",
+      "Xamarin.AndroidX.ConstraintLayout.Solver >= 2.0.4.16",
       "Xamarin.AndroidX.Legacy.Support.V4 >= 1.0.0.15",
       "Xamarin.AndroidX.Lifecycle.LiveData >= 2.5.1.1",
       "Xamarin.AndroidX.Navigation.Common >= 2.5.2.1",
@@ -26465,7 +26904,8 @@
       "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop >= 7.0.86",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.22621.755",
       "Microsoft.WindowsAppSDK >= 1.2.221209.1",
-      "Npgsql >= 7.0.6"
+      "Npgsql >= 7.0.6",
+      "SharpConstraintLayout.Wpf >= 1.5.0"
     ]
   },
   "packageFolders": {
@@ -26475,11 +26915,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\briccm84\\Desktop\\TreeHugger\\TreeHugger\\TreeHugger.csproj",
+      "projectUniqueName": "C:\\Users\\briccm84\\Desktop\\tryagain\\TreeHugger\\TreeHugger\\TreeHugger.csproj",
       "projectName": "TreeHugger",
-      "projectPath": "C:\\Users\\briccm84\\Desktop\\TreeHugger\\TreeHugger\\TreeHugger.csproj",
+      "projectPath": "C:\\Users\\briccm84\\Desktop\\tryagain\\TreeHugger\\TreeHugger\\TreeHugger.csproj",
       "packagesPath": "C:\\Users\\briccm84\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\briccm84\\Desktop\\TreeHugger\\TreeHugger\\obj\\",
+      "outputPath": "C:\\Users\\briccm84\\Desktop\\tryagain\\TreeHugger\\TreeHugger\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
@@ -26575,6 +27015,14 @@
             "target": "Package",
             "version": "[1.4.0.3, )",
             "autoReferenced": true
+          },
+          "Xamarin.AndroidX.ConstraintLayout.Core": {
+            "target": "Package",
+            "version": "[1.0.4.8, )"
+          },
+          "Xamarin.AndroidX.ConstraintLayout.Solver": {
+            "target": "Package",
+            "version": "[2.0.4.16, )"
           },
           "Xamarin.AndroidX.Legacy.Support.V4": {
             "target": "Package",
@@ -26850,6 +27298,10 @@
           "Npgsql": {
             "target": "Package",
             "version": "[7.0.6, )"
+          },
+          "SharpConstraintLayout.Wpf": {
+            "target": "Package",
+            "version": "[1.5.0, )"
           }
         },
         "imports": [

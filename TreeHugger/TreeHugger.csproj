@@ -77,4 +77,34 @@
 		<PackageReference Include="Npgsql" Version="7.0.6" />
 		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.96" />
 	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
+	  <PackageReference Include="Xamarin.AndroidX.ConstraintLayout.Core">
+	    <Version>1.0.4.8</Version>
+	  </PackageReference>
+	  <PackageReference Include="Xamarin.AndroidX.ConstraintLayout.Solver">
+	    <Version>2.0.4.16</Version>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows10.0.19041.0'">
+	  <PackageReference Include="SharpConstraintLayout.Wpf">
+	    <Version>1.5.0</Version>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="AvatarPage.xaml.cs">
+	    <DependentUpon>AvatarPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ShopPage.xaml.cs">
+	    <DependentUpon>ShopPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AvatarPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 </Project>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\briccm84\\Desktop\\TreeHugger\\TreeHugger\\TreeHugger.csproj": {}
+    "C:\\Users\\briccm84\\Desktop\\tryagain\\TreeHugger\\TreeHugger\\TreeHugger.csproj": {}
   },
   "projects": {
-    "C:\\Users\\briccm84\\Desktop\\TreeHugger\\TreeHugger\\TreeHugger.csproj": {
+    "C:\\Users\\briccm84\\Desktop\\tryagain\\TreeHugger\\TreeHugger\\TreeHugger.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\briccm84\\Desktop\\TreeHugger\\TreeHugger\\TreeHugger.csproj",
+        "projectUniqueName": "C:\\Users\\briccm84\\Desktop\\tryagain\\TreeHugger\\TreeHugger\\TreeHugger.csproj",
         "projectName": "TreeHugger",
-        "projectPath": "C:\\Users\\briccm84\\Desktop\\TreeHugger\\TreeHugger\\TreeHugger.csproj",
+        "projectPath": "C:\\Users\\briccm84\\Desktop\\tryagain\\TreeHugger\\TreeHugger\\TreeHugger.csproj",
         "packagesPath": "C:\\Users\\briccm84\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\briccm84\\Desktop\\TreeHugger\\TreeHugger\\obj\\",
+        "outputPath": "C:\\Users\\briccm84\\Desktop\\tryagain\\TreeHugger\\TreeHugger\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
@@ -107,6 +107,14 @@
               "target": "Package",
               "version": "[1.4.0.3, )",
               "autoReferenced": true
+            },
+            "Xamarin.AndroidX.ConstraintLayout.Core": {
+              "target": "Package",
+              "version": "[1.0.4.8, )"
+            },
+            "Xamarin.AndroidX.ConstraintLayout.Solver": {
+              "target": "Package",
+              "version": "[2.0.4.16, )"
             },
             "Xamarin.AndroidX.Legacy.Support.V4": {
               "target": "Package",
@@ -382,6 +390,10 @@
             "Npgsql": {
               "target": "Package",
               "version": "[7.0.6, )"
+            },
+            "SharpConstraintLayout.Wpf": {
+              "target": "Package",
+              "version": "[1.5.0, )"
             }
           },
           "imports": [

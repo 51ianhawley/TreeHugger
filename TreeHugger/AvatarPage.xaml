@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:drawable="clr-namespace:TreeHugger.Drawable"
+             x:Class="TreeHugger.AvatarPage"
+             Title="AvatarPage">
+    <ContentPage.Resources>
+        <drawable:StickFigure x:Key="stickFigure" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Button Text="Shop" Clicked="Shop_Clicked"/>
+            <GraphicsView Drawable="{StaticResource stickFigure}"
+                              x:Name="Canvas"
+                              HeightRequest="200"
+                              WidthRequest="95"
+                              HorizontalOptions="Center"/>
+            <Button Text="equip" Clicked="Equip_Clicked"/>
+            <Grid ColumnDefinitions="*,*">
+                <VerticalStackLayout  Grid.Row="0" Grid.Column="0">
+                    <Image Source="blue_cap.png" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
+
+                    <Label Text="cost"/>
+                    <Button Text="Try on" Clicked="TryOnBlueCap_Clicked"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout  Grid.Row="0" Grid.Column="1">
+                    <Image Source="scared_face.png" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
+
+                    <Label Text="cost"/>
+                    <Button Text="Try on" Clicked="TryOnScaredFace_Clicked"/>
+                </VerticalStackLayout>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

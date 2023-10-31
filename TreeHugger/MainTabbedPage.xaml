@@ -27,9 +27,9 @@
             </x:Arguments>
         </NavigationPage>
     <!-- Tab for the shop page -->
-        <NavigationPage Title="Shop Page">
+        <NavigationPage Title="Avatar Page">
             <x:Arguments>
-                <local:Shop />
+                <local:AvatarPage />
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>
