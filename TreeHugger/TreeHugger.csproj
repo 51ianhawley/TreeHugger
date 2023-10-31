@@ -54,15 +54,27 @@
 	  <MauiXaml Remove="Interfaecs\**" />
 	  <None Remove="Interfaecs\**" />
 	  <None Remove="Resources\Images\" />
+	  <None Remove="Resources\Images\blue_baseball_cap.png" />
+	  <None Remove="Resources\Images\blue_cap.png" />
+	  <None Remove="Resources\Images\scared_face.png" />
+	  <None Remove="Resources\Images\scared_face_hi.png" />
+	  <None Remove="Resources\Images\stick_figure.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Images\blue_baseball_cap.png" />
+	  <EmbeddedResource Include="Resources\Images\scared_face_hi.png" />
+	  <EmbeddedResource Include="Resources\Images\stick_figure.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\scared_face.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\blue_cap.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Npgsql" Version="7.0.6" />
 		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.96" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Resources\Images\" />
 	</ItemGroup>
 </Project>

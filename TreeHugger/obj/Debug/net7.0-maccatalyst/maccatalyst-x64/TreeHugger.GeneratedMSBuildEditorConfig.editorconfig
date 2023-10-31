@@ -8,51 +8,57 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TreeHugger
-build_property.ProjectDir = /Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/
+build_property.ProjectDir = C:\Users\briccm84\Desktop\TreeHugger\TreeHugger\
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/App.xaml]
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/MainTabbedPage.xaml]
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/MainTabbedPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.MainTabbedPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainTabbedPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainTabbedPage.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/MapPage.xaml]
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/MapPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.MapPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MapPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MapPage.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/ProfilePage.xaml]
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/ProfilePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.ProfilePage.xaml
 build_metadata.AdditionalFiles.TargetPath = ProfilePage.xaml
 build_metadata.AdditionalFiles.RelativePath = ProfilePage.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/Resources/Styles/Colors.xaml]
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.Resources.Styles.Colors.xaml
-build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
-build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/Resources/Styles/Styles.xaml]
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.Resources.Styles.Styles.xaml
-build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
-build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/SocialPage.xaml]
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/Shop.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.Shop.xaml
+build_metadata.AdditionalFiles.TargetPath = Shop.xaml
+build_metadata.AdditionalFiles.RelativePath = Shop.xaml
+
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/SocialPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.SocialPage.xaml
 build_metadata.AdditionalFiles.TargetPath = SocialPage.xaml
 build_metadata.AdditionalFiles.RelativePath = SocialPage.xaml
 
-[/Users/aldensprackling/Desktop/SoftwareEngineering/TreeHugger/TreeHugger/StatisticsPage.xaml]
+[C:/Users/briccm84/Desktop/TreeHugger/TreeHugger/StatisticsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TreeHugger.StatisticsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = StatisticsPage.xaml

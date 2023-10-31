@@ -26,5 +26,11 @@
                 <local:SocialPage />
             </x:Arguments>
         </NavigationPage>
+    <!-- Tab for the shop page -->
+        <NavigationPage Title="Shop Page">
+            <x:Arguments>
+                <local:Shop />
+            </x:Arguments>
+        </NavigationPage>
     </TabbedPage.Children>
 </TabbedPage>
