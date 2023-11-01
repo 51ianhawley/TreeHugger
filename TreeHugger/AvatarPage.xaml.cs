@@ -63,6 +63,7 @@ public partial class AvatarPage : ContentPage
 
     private void Equip_Clicked(object sender, EventArgs e)
     {
-
+        StickFigure sf = (StickFigure)Resources["stickFigure"];
+        sf.AddEquippedItem(sf.ToBeDrawn[sf.ToBeDrawn.Count-1]);
     }
 }
