@@ -4,7 +4,8 @@
              x:Class="TreeHugger.MainTabbedPage"
              xmlns:local="clr-namespace:TreeHugger"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
-             android:TabbedPage.ToolbarPlacement="Bottom">
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             android:TabbedPage.IsSwipePagingEnabled="False">
     <TabbedPage.Children>
         <!-- Tab for the statistics page -->
         <NavigationPage Title="Statistics Page">
@@ -14,7 +15,7 @@
         </NavigationPage>
 
     <!-- Tab for the map page (set as current page to display first) -->
-        <NavigationPage Title="Map Page">
+        <NavigationPage Title="Map Page" IconImageSource="Resources/AppIcon/map.svg">
             <x:Arguments>
                 <local:MapPage />
             </x:Arguments>

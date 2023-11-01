@@ -59,6 +59,7 @@
 	  <None Remove="Resources\Images\scared_face.png" />
 	  <None Remove="Resources\Images\scared_face_hi.png" />
 	  <None Remove="Resources\Images\stick_figure.png" />
+	  <None Remove="Resources\AppIcon\map.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\Images\blue_baseball_cap.png" />
@@ -103,5 +104,8 @@
 	  <MauiXaml Update="AvatarPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\AppIcon\map.svg" />
 	</ItemGroup>
 </Project>

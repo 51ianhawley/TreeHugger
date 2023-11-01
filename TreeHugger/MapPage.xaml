@@ -10,22 +10,23 @@
         <!-- Map (background)-->
         <maps:Map x:Name="map"
                   MapType="Street"
-                  IsZoomEnabled="False"
-                  IsScrollEnabled="False" />
+                  IsZoomEnabled="True"
+                  IsScrollEnabled="True"
+                  IsShowingUser="True"/>
 
         <!-- Mark tree button (bottom center)-->
         <Button Text="MARK TREE"
                 Clicked="MarkTreeButton_Clicked"
+                CornerRadius="60"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="End"
                 HeightRequest="60"
                 WidthRequest="275"
-                Margin="30"
-                TextColor="Black"/>
+                Margin="30" />
 
          <!-- Profile picture button (top right)-->
         <ImageButton
-            Source="profile_picture.png"
+            Source="Resources/Images/profile_picture.png"
             Clicked="ProfilePictureButton_Clicked"
             WidthRequest="100"
             HeightRequest="100"

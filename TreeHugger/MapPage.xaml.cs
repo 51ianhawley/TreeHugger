@@ -1,23 +1,32 @@
-﻿namespace TreeHugger;
+﻿using Microsoft.Maui.Controls.Maps;
+using TreeHugger.Models;
+
+namespace TreeHugger;
 
 public partial class MapPage : ContentPage
 {
-	public MapPage()
+
+    LocationServices locationServices = new();
+
+    public MapPage()
 	{
         InitializeComponent();
     }
 
-    private void MarkTreeButton_Clicked(object sender, EventArgs e)
+    private async void MarkTreeButton_Clicked(object sender, EventArgs e)
     {
-        // Perform some action when the button is clicked
-        // For example, display a message
-        DisplayAlert("Button Clicked", "You clicked the button!", "OK");
+        Pin pin = new Pin
+        {
+            Label = "Some Tree",
+            Address = "City",
+            Type = PinType.Place,
+            Location = new Location(await locationServices.GetCurrentLocation())
+        };
+        map.Pins.Add(pin);
     }
 
     private void ProfilePictureButton_Clicked(object sender, EventArgs e)
     {
-        // Perform some action when the button is clicked
-        // For example, display a message
         Navigation.PushAsync(new ProfilePage());
     }
 }
