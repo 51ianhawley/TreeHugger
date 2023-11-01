@@ -1,6 +1,7 @@
 ﻿#if IOS || ANDROID || MACCATALYST
 using Microsoft.Maui.Graphics.Platform;
 using Microsoft.Maui.Platform;
+using System;
 using System.Collections.ObjectModel;
 #elif WINDOWS
 using Microsoft.Maui.Graphics.Win2D;
@@ -73,10 +74,16 @@ public class StickFigure : IDrawable
         }
         jsonItems = File.ReadAllText(fullPathItems);
         //Items = JsonSerializer.Deserialize<List<Item>>(jsonItems);
-        EquippedItems.Add(0);
-        foreach(int index in EquippedItems)
+        if (!EquippedItems.Contains(0))
         {
-            ToBeDrawn.Add(index);
+            EquippedItems.Add(0);
+        }
+        foreach (int index in EquippedItems)
+        {
+            if (!ToBeDrawn.Contains(index))
+            {
+                ToBeDrawn.Add(index);
+            }
         }
         List<int> offset = new List<int>(2);
         List<int> size = new List<int>(2);
@@ -102,11 +109,12 @@ public class StickFigure : IDrawable
         string jsonOwnedItems = JsonSerializer.Serialize(OwnedItems);
         File.WriteAllText(fullPathOwnedItems, jsonOwnedItems);
     }
-    public void AddEquippedItem(int index)
+    public void EquipItems()
     {
-        EquippedItems.Add(index);
-        string jsonEquippedItemss = JsonSerializer.Serialize(EquippedItems);
-        File.WriteAllText(fullPathEquippedItems, jsonEquippedItemss);
+        EquippedItems.Clear();
+        EquippedItems = new List<int>(ToBeDrawn);
+        string jsonEquippedItems = JsonSerializer.Serialize(EquippedItems);
+        File.WriteAllText(fullPathEquippedItems, jsonEquippedItems);
     }
     public void Draw(ICanvas canvas, RectF dirtyRect)
     {

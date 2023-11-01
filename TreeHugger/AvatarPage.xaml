@@ -16,7 +16,7 @@
                               WidthRequest="95"
                               HorizontalOptions="Center"/>
             <Button Text="equip" Clicked="Equip_Clicked"/>
-            <Grid ColumnDefinitions="*,*">
+            <Grid x:Name="_Grid" ColumnDefinitions="*,*">
                 <VerticalStackLayout  Grid.Row="0" Grid.Column="0">
                     <Image Source="blue_cap.png" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
 
@@ -25,7 +25,6 @@
                 </VerticalStackLayout>
                 <VerticalStackLayout  Grid.Row="0" Grid.Column="1">
                     <Image Source="scared_face.png" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
-
                     <Label Text="cost"/>
                     <Button Text="Try on" Clicked="TryOnScaredFace_Clicked"/>
                 </VerticalStackLayout>
