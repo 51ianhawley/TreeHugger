@@ -6,7 +6,7 @@
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
              android:TabbedPage.ToolbarPlacement="Bottom">
     <TabbedPage.Children>
-        <!-- Tab for the Statistics page -->
+        <!-- Tab for the statistics page -->
         <NavigationPage Title="Statistics Page">
             <x:Arguments>
                 <local:StatisticsPage />
@@ -26,11 +26,11 @@
                 <local:SocialPage />
             </x:Arguments>
         </NavigationPage>
-    <!-- Tab for the shop page -->
+    <!-- Tab for the shop page
         <NavigationPage Title="Avatar Page">
             <x:Arguments>
                 <local:AvatarPage />
             </x:Arguments>
-        </NavigationPage>
+        </NavigationPage> -->
     </TabbedPage.Children>
 </TabbedPage>

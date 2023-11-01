@@ -3,6 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TreeHugger.MapPage"
              Title="MapPage"
-             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps">
-    <maps:Map x:Name="map" MapType="Satellite" />
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        
+        <!-- Map (background)-->
+        <maps:Map x:Name="map"
+                  MapType="Street"
+                  IsZoomEnabled="False"
+                  IsScrollEnabled="False" />
+
+        <!-- Mark tree button (bottom center)-->
+        <Button Text="MARK TREE"
+                Clicked="MarkTreeButton_Clicked"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="End"
+                HeightRequest="60"
+                WidthRequest="275"
+                Margin="30"
+                TextColor="Black"/>
+
+         <!-- Profile picture button (top right)-->
+        <ImageButton
+            Source="profile_picture.png"
+            Clicked="ProfilePictureButton_Clicked"
+            WidthRequest="100"
+            HeightRequest="100"
+            Aspect="AspectFill"
+            BackgroundColor="White"
+            CornerRadius="50"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            Margin="30" />
+    </Grid>
 </ContentPage>
