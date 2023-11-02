@@ -18,7 +18,7 @@
 
             <!-- Circular profile piture -->
             <Frame CornerRadius="100" BackgroundColor="LightGray" Padding="0" HorizontalOptions="Center" Margin="0,20">
-                <Image Source="" WidthRequest="120" HeightRequest="120" Aspect="AspectFill" />
+                <Image Source="scared_face.png" WidthRequest="120" HeightRequest="120" Aspect="AspectFill" />
             </Frame>
 
             <!-- Profile name -->
