@@ -15,7 +15,7 @@ public partial class MapPage : ContentPage
 
     private async void MarkTreeButton_Clicked(object sender, EventArgs e)
     {
-        Pin pin = new Pin
+        Pin pin = new()
         {
             Label = "Some Tree",
             Address = "City",

@@ -19,4 +19,9 @@ public partial class ProfilePage : ContentPage
 
         // You can save the settings to a database, preferences, or wherever is suitable for your app.
     }
+
+    private void ShopIcon_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ShopPage());
+    }
 }

@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TreeHugger.MapPage"
-             Title="MapPage"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              NavigationPage.HasNavigationBar="False">
     <Grid>
@@ -26,11 +25,11 @@
 
          <!-- Profile picture button (top right)-->
         <ImageButton
-            Source="Resources/Images/profile_picture.png"
+            Source=""
+            Aspect="AspectFill"
             Clicked="ProfilePictureButton_Clicked"
             WidthRequest="100"
             HeightRequest="100"
-            Aspect="AspectFill"
             BackgroundColor="White"
             CornerRadius="50"
             HorizontalOptions="End"

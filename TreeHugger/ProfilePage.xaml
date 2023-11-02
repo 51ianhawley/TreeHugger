@@ -3,12 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TreeHugger.ProfilePage"
              Title="Profile">
+
+    <!-- Shop icon (right side of navigation bar) -->
+    <ContentPage.ToolbarItems>
+      <ToolbarItem Clicked="ShopIcon_Clicked">
+        <ToolbarItem.IconImageSource>
+            <FileImageSource File="Resources/Images/blue_cap.png" />
+        </ToolbarItem.IconImageSource>
+      </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <ScrollView HorizontalOptions="Center">
         <StackLayout HorizontalOptions="Center">
 
             <!-- Circular profile piture -->
             <Frame CornerRadius="100" BackgroundColor="LightGray" Padding="0" HorizontalOptions="Center" Margin="0,20">
-                <Image Source="Resources/Images/profile_picture.jpeg" WidthRequest="120" HeightRequest="120" Aspect="AspectFill" />
+                <Image Source="" WidthRequest="120" HeightRequest="120" Aspect="AspectFill" />
             </Frame>
 
             <!-- Profile name -->

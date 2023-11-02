@@ -7,6 +7,7 @@
              android:TabbedPage.ToolbarPlacement="Bottom"
              android:TabbedPage.IsSwipePagingEnabled="False">
     <TabbedPage.Children>
+
         <!-- Tab for the statistics page -->
         <NavigationPage Title="Statistics Page">
             <x:Arguments>
@@ -14,20 +15,20 @@
             </x:Arguments>
         </NavigationPage>
 
-    <!-- Tab for the map page (set as current page to display first) -->
-        <NavigationPage Title="Map Page" IconImageSource="Resources/AppIcon/map.svg">
+        <!-- Tab for the map page (set as current page to display first) -->
+        <NavigationPage Title="Map Page" IconImageSource="map.svg">
             <x:Arguments>
                 <local:MapPage />
             </x:Arguments>
         </NavigationPage>
 
-    <!-- Tab for the social page -->
+        <!-- Tab for the social page -->
         <NavigationPage Title="Social Page">
             <x:Arguments>
                 <local:SocialPage />
             </x:Arguments>
         </NavigationPage>
-    <!-- Tab for the shop page
+        <!-- Tab for the shop page
         <NavigationPage Title="Avatar Page">
             <x:Arguments>
                 <local:AvatarPage />

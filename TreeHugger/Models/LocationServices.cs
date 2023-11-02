@@ -6,14 +6,14 @@ public class LocationServices
     private CancellationTokenSource _cancelTokenSource;
     private bool _isCheckingLocation;
 
-    public async Task<string> GetCachedLocation()
+    public async Task<Location> GetCachedLocation()
     {
         try
         {
             Location location = await Geolocation.Default.GetLastKnownLocationAsync();
 
             if (location != null)
-                return $"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}";
+                return location;
         }
         catch (FeatureNotSupportedException fnsEx)
         {
@@ -32,7 +32,7 @@ public class LocationServices
             // Unable to get location
         }
 
-        return "None";
+        return null;
     }
 
     public async Task<Location> GetCurrentLocation()
