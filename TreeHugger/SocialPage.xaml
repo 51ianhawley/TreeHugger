@@ -17,24 +17,31 @@
             Padding="30,0"
             VerticalOptions="Start">
 
-            <Label HorizontalTextAlignment="Start" Text="Airports" FontSize="Large"/>
-            <Image x:Name="TestImage"/>
+            <Label HorizontalTextAlignment="Start" Text="Trees" FontSize="Large"/>
             <!-- This line says that the ItemsSource of the CollectionView is the Movies property of the Domain object (an ObservableCollection) -->
             <CollectionView x:Name="CV" ItemsSource="{Binding Trees}" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Tree">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Id}" VerticalTextAlignment="Center"/>
-                            <Label Text="{Binding Location}" VerticalTextAlignment="Center"/>
-                            <Label Text="{Binding Lattiude}" VerticalTextAlignment="Center"/>
-                            <Label Text="{Binding Longitude}" VerticalTextAlignment="Center" />
-                            <Image x:Name="TestImage" Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
-                        </VerticalStackLayout>
+                        <Border Stroke="#0"
+                        StrokeThickness="4"
+                        StrokeShape="RoundRectangle 40,0,0,40"
+                        Padding="16,8"
+                        HorizontalOptions="Center">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Id}" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Location}" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Lattiude}" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Longitude}" VerticalTextAlignment="Center" />
+                                <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
+                            </VerticalStackLayout>
+                        </Border>
                     </DataTemplate>
 
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
+            <Label Text="please select post and click button to see details"/>
+            <Button Clicked="Tree_Clicked" BackgroundColor="BlueViolet" Text="Details"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
