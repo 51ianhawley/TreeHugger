@@ -8,6 +8,10 @@ public class DataBase : IDataBase
 {
     private String connString = GetConnectionString();
     ObservableCollection<Tree> trees = new();
+    public ObservableCollection<Tree> Trees
+    {
+        get { return trees; }
+    }
     static String GetConnectionString()
     {
         var connStringBuilder = new NpgsqlConnectionStringBuilder();
@@ -102,8 +106,8 @@ public class DataBase : IDataBase
         using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
         while (reader.Read()) // each time through we get another row in the table (i.e., another Tree)
         {
-            int Id = int.Parse(reader.GetString(0));
-            int speciesId = int.Parse(reader.GetString(1));
+            int Id = reader.GetInt32(0);
+            int speciesId = reader.GetInt32(1);
             String location = reader.GetString(2);
             string latitude = reader.GetString(3);
             string longitude = reader.GetString(4);
@@ -130,8 +134,8 @@ public class DataBase : IDataBase
         while (reader.Read()) // each time through we get another row in the table (i.e., another Airport)
         {
             Tree returnTree;
-            int _Id = int.Parse(reader.GetString(0));
-            int speciesId = int.Parse(reader.GetString(1));
+            int _Id = reader.GetInt32(0);
+            int speciesId = reader.GetInt32(1);
             String location = reader.GetString(2);
             string latitude = reader.GetString(3);
             string longitude = reader.GetString(4);

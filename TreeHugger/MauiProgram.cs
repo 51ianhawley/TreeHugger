@@ -1,11 +1,15 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
+using TreeHugger.Models;
 
 namespace TreeHugger;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
+    public static BusinessLogic BusinessLogic = new BusinessLogic();
+    public static DataBase DataBase = new DataBase();
+    public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
@@ -30,7 +34,9 @@ public static class MauiProgram
                 }
 #endif
             })
-            .UseMauiMaps();
+            .UseMauiCommunityToolkit();
+            builder.UseMauiMaps();
+            
 
 #if DEBUG
 		builder.Logging.AddDebug();
