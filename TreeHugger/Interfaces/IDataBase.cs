@@ -8,5 +8,5 @@ namespace TreeHugger.Interfaces;
 
 public interface IDataBase
 {
-
+    //Boolean InsertTree(Tree tree);
 }
