@@ -62,6 +62,41 @@ public class DataBase : IDataBase
         new NpgsqlCommand("CREATE TABLE chats(id INT, message varchar, date_submitted date);", conn).ExecuteNonQuery();
     }
     /// <summary>
+    /// Creates avatar accessories table in our database 
+    /// </summary>
+    /// <param name="connString">string connString</param>
+    static void CreateAvatarAccessoriesTable(string connString)
+    {
+        using var conn = new NpgsqlConnection(connString); // a conn represents a connection to the database
+        conn.Open(); // open the connection ... now we are connected!
+        new NpgsqlCommand("CREATE TABLE avatar_accessories(name varchar, cost INT,xOffset INT, yOffset INT, xSize INT, ySize INT, image BYTEA);", conn).ExecuteNonQuery();
+    }
+
+    public Boolean AddAvatarAccessory(string name, int cost, int xOffset, int yOffset, int xSize, int ySize, Byte[] image)
+    {
+        //Item(string name, int cost, int xOffset, int yOffset, int xSize,int ySize, Byte[] image)
+        try
+        {
+            using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
+            conn.Open(); // open the connection ... now we are connected!
+            var cmd = new NpgsqlCommand("INSERT INTO avatar_accessories (name varchar, cost INT,xOffset INT, yOffset INT, xSize INT, ySize INT, image BYTEA) VALUES (@name, @cost, @xOffset, @yOffset, @xSize, @ySize, @image)", conn);
+            cmd.Parameters.AddWithValue("cost", cost);
+            cmd.Parameters.AddWithValue("name", name);
+            cmd.Parameters.AddWithValue("xOffset", xOffset);
+            cmd.Parameters.AddWithValue("yOffset", yOffset);
+            cmd.Parameters.AddWithValue("xSize", xSize);
+            cmd.Parameters.AddWithValue("ySize", ySize);
+            cmd.Parameters.AddWithValue("image", image);
+            cmd.ExecuteNonQuery(); // used for INSERT, UPDATE & DELETE statements - returns # of affected rows
+        }
+        catch (Npgsql.PostgresException pe)
+        {
+            Console.WriteLine("Insert failed, {0}", pe);
+            return false;
+        }
+        return true;
+    }
+    /// <summary>
     /// INserts a tree into the database.
     /// </summary>
     /// <param name="tree"></param>
