@@ -73,6 +73,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Npgsql" Version="7.0.6" />
 		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.96" />
@@ -94,6 +95,9 @@
 	  <Compile Update="AvatarPage.xaml.cs">
 	    <DependentUpon>AvatarPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="PostDetailsPage.xaml.cs">
+	    <DependentUpon>PostDetailsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="ShopPage.xaml.cs">
 	    <DependentUpon>ShopPage.xaml</DependentUpon>
 	  </Compile>
@@ -101,6 +105,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="AvatarPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PostDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
