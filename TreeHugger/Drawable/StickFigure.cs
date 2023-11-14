@@ -85,23 +85,23 @@ public class StickFigure : IDrawable
                 ToBeDrawn.Add(index);
             }
         }
-        List<int> offset = new List<int>(2);
-        List<int> size = new List<int>(2);
-        offset.Add(10);
-        offset.Add(10);
-        size.Add(85);
-        size.Add(200);
-        Items.Add(new Item("stick_figure", 0, new List<int>(offset), new List<int>(size)));
-        offset[0] = 10;
-        offset[1] = -20;
-        size[0] = 80;
-        size[1] = 80;
-        Items.Add(new Item("blue_baseball_cap", 0, new List<int>(offset), new List<int>(size)));
-        offset[0] = 40;
-        offset[1] = 35;
-        size[0] = 25;
-        size[1] = 25;
-        Items.Add(new Item("scared_face_hi", 0, new List<int>(offset), new List<int>(size)));
+        //List<int> offset = new List<int>(2);
+        //List<int> size = new List<int>(2);
+        //offset.Add(10);
+        //offset.Add(10);
+        //size.Add(85);
+        //size.Add(200);
+        //Items.Add(new Item("stick_figure", 0, new List<int>(offset), new List<int>(size)));
+        //offset[0] = 10;
+        //offset[1] = -20;
+        //size[0] = 80;
+        //size[1] = 80;
+        //Items.Add(new Item("blue_baseball_cap", 0, new List<int>(offset), new List<int>(size)));
+        //offset[0] = 40;
+        //offset[1] = 35;
+        //size[0] = 25;
+        //size[1] = 25;
+        //Items.Add(new Item("scared_face_hi", 0, new List<int>(offset), new List<int>(size)));
     }
     public void AddOwnedItem(int index)
     {
@@ -136,7 +136,7 @@ public class StickFigure : IDrawable
             if (image != null)
             {
                 IImage newImage = image.Downsize(items[index].Size[0], items[index].Size[1], true);
-                canvas.DrawImage(newImage, items[index].Offset[0], items[index].Offset[1], newImage.Width, newImage.Height);
+                //canvas.DrawImage(newImage, items[index].Offset[0], items[index].Offset[1], newImage.Width, newImage.Height);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Maui.Devices.Sensors;
 using System.ComponentModel;
 
 namespace TreeHugger.Models;
@@ -11,7 +12,15 @@ public class Tree : INotifyPropertyChanged
     string _Lattiude;
     string _Longitude;
     Byte[] _Image;
-
+    public Tree() 
+    {
+        this.Id = -1;
+        this._SpeciesId = -1;
+        this._Location = null;
+        this._Lattiude = null;
+        this._Longitude = null;
+        this._Image = null;
+    }
     public Tree(int id, int speciesID, string location, string latitude, string longitude, Byte[] image)
     {
         this.Id = id;

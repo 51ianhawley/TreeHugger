@@ -8,7 +8,6 @@ namespace TreeHugger;
 public static class MauiProgram
 {
     public static BusinessLogic BusinessLogic = new BusinessLogic();
-    public static DataBase DataBase = new DataBase();
     public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
