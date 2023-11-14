@@ -7,6 +7,7 @@ public partial class AvatarPage : ContentPage
 	public AvatarPage()
 	{
 		InitializeComponent();
+        BindingContext = MauiProgram.BusinessLogic;
         StickFigure sf = (StickFigure)Resources["stickFigure"];
         Image image;
         if (!sf.OwnedItems.Contains(0))

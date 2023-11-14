@@ -8,6 +8,7 @@ using Microsoft.Maui.Graphics.Win2D;
 #endif
 using System.Reflection;
 using System.Text.Json;
+using TreeHugger.Models;
 using IImage = Microsoft.Maui.Graphics.IImage;
 
 namespace TreeHugger.Drawable;
@@ -135,7 +136,7 @@ public class StickFigure : IDrawable
 
             if (image != null)
             {
-                IImage newImage = image.Downsize(items[index].Size[0], items[index].Size[1], true);
+                IImage newImage = image.Downsize(items[index].XSize, items[index].YSize, true);
                 //canvas.DrawImage(newImage, items[index].Offset[0], items[index].Offset[1], newImage.Width, newImage.Height);
             }
         }
