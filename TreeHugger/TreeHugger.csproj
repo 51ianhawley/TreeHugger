@@ -73,6 +73,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Camera.MAUI" Version="1.4.4" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Npgsql" Version="7.0.6" />
 		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.96" />

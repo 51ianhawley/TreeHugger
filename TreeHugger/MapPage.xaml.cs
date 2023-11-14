@@ -23,6 +23,7 @@ public partial class MapPage : ContentPage
             Location = new Location(await locationServices.GetCurrentLocation())
         };
         map.Pins.Add(pin);
+        await Navigation.PushAsync(new CaptureTreePage());
     }
 
     private void ProfilePictureButton_Clicked(object sender, EventArgs e)
