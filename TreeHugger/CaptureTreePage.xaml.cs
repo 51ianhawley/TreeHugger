@@ -1,3 +1,5 @@
+using Camera.MAUI;
+
 namespace TreeHugger;
 
 public partial class CaptureTreePage : ContentPage
@@ -7,9 +9,10 @@ public partial class CaptureTreePage : ContentPage
 		InitializeComponent();
 	}
 
-    private async void cameraView_CamerasLoaded(object sender, EventArgs e)
-    {
-		cameraView.Camera = cameraView.Cameras[0];
-		await cameraView.StartCameraAsync().ConfigureAwait(false);
-    }
+	private async void btnTakePhoto_Clicked(object sender, EventArgs e)
+	{
+
+	}
+
+
 }
