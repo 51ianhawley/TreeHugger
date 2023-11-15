@@ -5,6 +5,7 @@
              xmlns:drawable="clr-namespace:TreeHugger.Drawable"
              xmlns:model="clr-namespace:TreeHugger.Models"
              x:Class="TreeHugger.AvatarPage"
+             x:DataType="model:BusinessLogic"
              Title="AvatarPage">
     <ContentPage.Resources>
         <drawable:StickFigure x:Key="stickFigure" />
@@ -12,11 +13,8 @@
             <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.BindingContext>
-        <model:BusinessLogic/>
-    </ContentPage.BindingContext>
-    <ScrollView>
-        <VerticalStackLayout>
+    <VerticalStackLayout>
+       
             <Button Text="Shop" Clicked="Shop_Clicked"/>
             <GraphicsView Drawable="{StaticResource stickFigure}"
                               x:Name="Canvas"
@@ -24,9 +22,10 @@
                               WidthRequest="95"
                               HorizontalOptions="Center"/>
             <Button Text="equip" Clicked="Equip_Clicked"/>
-            <Grid x:Name="_Grid" ColumnDefinitions="*,*">
+        
+        <Grid x:Name="_Grid" ColumnDefinitions="*,*">
                 <VerticalStackLayout  Grid.Row="0" Grid.Column="0">
-                    <CollectionView x:Name="CV" ItemsSource="{Binding Items}" SelectionMode="Single">
+                    <!--<CollectionView x:Name="CV" ItemsSource="{Binding Items}" SelectionMode="Single">
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="model:Item">
                                 <Border Stroke="#0"
@@ -41,20 +40,22 @@
                             </DataTemplate>
 
                         </CollectionView.ItemTemplate>
-
-                    </CollectionView>
+                    </CollectionView>-->
+                    <!--<Label Text="Please select item then click equip"/>
+                    <Button Text="equip" Clicked="Equip_Clicked"/>-->
                     <Image Source="blue_cap.png" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
 
-                    <Label Text="cost"/>
+                    <!--<Label Text="cost"/>-->
                     <Button Text="Try on" Clicked="TryOnBlueCap_Clicked"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout  Grid.Row="0" Grid.Column="1">
                     <Image Source="scared_face.png" MaximumHeightRequest="100" MaximumWidthRequest="100"/>
-                    <Label Text="cost"/>
+                    <!--<Label Text="cost"/>-->
                     <Button Text="Try on" Clicked="TryOnScaredFace_Clicked"/>
                 </VerticalStackLayout>
 
             </Grid>
         </VerticalStackLayout>
-    </ScrollView>
+    <!--<ScrollView>
+    </ScrollView>-->
 </ContentPage>

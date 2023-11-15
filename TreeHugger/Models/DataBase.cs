@@ -12,6 +12,10 @@ public class DataBase : IDataBase
     {
         get { return trees; }
     }
+    public ObservableCollection<Item> Items
+    {
+        get { return SelectAllItems(); }
+    }
     static String GetConnectionString()
     {
         var connStringBuilder = new NpgsqlConnectionStringBuilder();
@@ -69,24 +73,29 @@ public class DataBase : IDataBase
     {
         using var conn = new NpgsqlConnection(connString); // a conn represents a connection to the database
         conn.Open(); // open the connection ... now we are connected!
-        new NpgsqlCommand("CREATE TABLE avatar_accessories(name varchar, cost INT,xOffset INT, yOffset INT, xSize INT, ySize INT, image BYTEA);", conn).ExecuteNonQuery();
+        new NpgsqlCommand("CREATE TABLE avatar_accessories(id INT, name varchar, cost INT,xOffset INT, yOffset INT, xSize INT, ySize INT, image BYTEA);", conn).ExecuteNonQuery();
     }
-
-    public Boolean AddAvatarAccessory(string name, int cost, int xOffset, int yOffset, int xSize, int ySize, Byte[] image)
+    /// <summary>
+    /// adds accessory to database
+    /// </summary>
+    /// <param name="item">avatar accessory to be added</param>
+    /// <returns></returns>
+    public Boolean AddAvatarAccessory(Item item)
     {
         //Item(string name, int cost, int xOffset, int yOffset, int xSize,int ySize, Byte[] image)
         try
         {
             using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
             conn.Open(); // open the connection ... now we are connected!
-            var cmd = new NpgsqlCommand("INSERT INTO avatar_accessories (name varchar, cost INT,xOffset INT, yOffset INT, xSize INT, ySize INT, image BYTEA) VALUES (@name, @cost, @xOffset, @yOffset, @xSize, @ySize, @image)", conn);
-            cmd.Parameters.AddWithValue("cost", cost);
-            cmd.Parameters.AddWithValue("name", name);
-            cmd.Parameters.AddWithValue("xOffset", xOffset);
-            cmd.Parameters.AddWithValue("yOffset", yOffset);
-            cmd.Parameters.AddWithValue("xSize", xSize);
-            cmd.Parameters.AddWithValue("ySize", ySize);
-            cmd.Parameters.AddWithValue("image", image);
+            var cmd = new NpgsqlCommand("INSERT INTO avatar_accessories (id INT, name varchar, cost INT,xOffset INT, yOffset INT, xSize INT, ySize INT, image BYTEA) VALUES (@id, @name, @cost, @xOffset, @yOffset, @xSize, @ySize, @image)", conn);
+            cmd.Parameters.AddWithValue("id", item.Id);
+            cmd.Parameters.AddWithValue("cost", item.Cost);
+            cmd.Parameters.AddWithValue("name", item.Name);
+            cmd.Parameters.AddWithValue("xOffset", item.XOffset);
+            cmd.Parameters.AddWithValue("yOffset", item.YOffset);
+            cmd.Parameters.AddWithValue("xSize", item.XSize);
+            cmd.Parameters.AddWithValue("ySize", item.YSize);
+            cmd.Parameters.AddWithValue("image", item.Image);
             cmd.ExecuteNonQuery(); // used for INSERT, UPDATE & DELETE statements - returns # of affected rows
         }
         catch (Npgsql.PostgresException pe)
@@ -95,6 +104,34 @@ public class DataBase : IDataBase
             return false;
         }
         return true;
+    }
+    /// <summary>
+    /// gets all items from database
+    /// </summary>
+    /// <returns>ObservableCollection<Item></returns>
+    public ObservableCollection<Item> SelectAllItems()
+    {
+        ObservableCollection<Item> items = new ObservableCollection<Item>();
+        var conn = new NpgsqlConnection(connString);
+        conn.Open();
+        Item itemToAdd = null;
+        // using() ==> disposable types are properly disposed of, even if there is an exception thrown
+        using var cmd = new NpgsqlCommand("SELECT id, name, cost, xOffset, yOffset, xSize, ySize, image FROM avatar_accessories;", conn);
+        using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
+        while (reader.Read()) // each time through we get another row in the table (i.e., another Tree)
+        {
+            int Id = reader.GetInt32(0);
+            string Name = reader.GetString(1);
+            int Cost = reader.GetInt32(2);
+            int xOffset = reader.GetInt32(3);
+            int yOffset = reader.GetInt32(4);
+            int xSize = reader.GetInt32(5);
+            int ySize = reader.GetInt32(6);
+            byte[] image = (byte[])reader["image"];
+            itemToAdd = new(Id, Name, Cost, xOffset, yOffset, xSize, ySize, image);
+            items.Add(itemToAdd);
+        }
+        return items;
     }
     /// <summary>
     /// INserts a tree into the database.

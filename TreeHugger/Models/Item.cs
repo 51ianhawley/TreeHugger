@@ -4,6 +4,7 @@ namespace TreeHugger.Models;
 
 public class Item : INotifyPropertyChanged
 {
+    int id;
     string name;
     int cost;
     int xOffset;
@@ -11,6 +12,15 @@ public class Item : INotifyPropertyChanged
     int xSize;
     int ySize;
     byte[] image;
+    public int Id
+    {
+        get { return id; }
+        set
+        {
+            id = value;
+            OnPropertyChanged(nameof(id));
+        }
+    }
     public string Name
     {
         get { return name; }
@@ -78,8 +88,9 @@ public class Item : INotifyPropertyChanged
     {
         return;
     }
-    public Item(string name, int cost, int xOffset, int yOffset, int xSize, int ySize, byte[] image)
+    public Item(int id, string name, int cost, int xOffset, int yOffset, int xSize, int ySize, byte[] image)
     {
+        Id = id;
         Name = name;
         Cost = cost;
         XOffset = xOffset;

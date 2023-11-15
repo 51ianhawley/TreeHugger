@@ -9,6 +9,10 @@ public class BusinessLogic
     {
         get { return dataBase.SelectAllTrees(); }
     }
+    public ObservableCollection<Item> Items
+    {
+        get { return dataBase.SelectAllItems(); }
+    }
 
     public DataBase DataBase { get { return dataBase; } }
 

@@ -6,8 +6,9 @@ public partial class AvatarPage : ContentPage
 {
 	public AvatarPage()
 	{
-		InitializeComponent();
         BindingContext = MauiProgram.BusinessLogic;
+        InitializeComponent();       
+        
         StickFigure sf = (StickFigure)Resources["stickFigure"];
         Image image;
         if (!sf.OwnedItems.Contains(0))
@@ -39,7 +40,7 @@ public partial class AvatarPage : ContentPage
     }
     private void TryOnBlueCap_Clicked(object sender, EventArgs e)
     {
-        //Canvas.Drawable = (IDrawable)Resources["stickFigure"];
+        Canvas.Drawable = (IDrawable)Resources["stickFigure"];
         StickFigure sf = (StickFigure)Resources["stickFigure"];
         if (sf.ToBeDrawn.Contains(1))
         {
@@ -96,5 +97,10 @@ public partial class AvatarPage : ContentPage
         StickFigure sf = (StickFigure)Resources["stickFigure"];
         sf.EquipItems();
         //sf.AddEquippedItem(sf.ToBeDrawn[sf.ToBeDrawn.Count-1]);
+    }
+
+    private void Buy_Clicked(object sender, EventArgs e)
+    {
+        return;
     }
 }

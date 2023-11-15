@@ -10,10 +10,6 @@
             <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.BindingContext>
-        <model:Tree />
-    </ContentPage.BindingContext>
-    
     <VerticalStackLayout >
         <Label Text="{Binding Id}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Location}" VerticalTextAlignment="Center"/>
