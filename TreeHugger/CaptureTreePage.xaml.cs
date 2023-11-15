@@ -33,5 +33,8 @@ public partial class CaptureTreePage : ContentPage
         }
     }
 
+    private void btnAddTree_Clicked(object sender, EventArgs e)
+    {
 
+    }
 }
