@@ -23,9 +23,9 @@
 	<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
 	<uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
 	<!-- <uses-sdk /> -->
-	<!-- <queries>
+	<queries>
 		<intent>
 			<action android:name="android.media.action.IMAGE_CAPTURE" />
 		</intent>
-	</queries> -->
+	</queries>
 </manifest>
