@@ -7,6 +7,8 @@ public partial class CaptureTreePage : ContentPage
 	public CaptureTreePage()
 	{
 		InitializeComponent();
+        var items = new List<string> { "Birch", "Oak", "Pine" };
+        pckSpeices.ItemsSource = items;
 	}
 
 	private async void btnTakePhoto_Clicked(object sender, EventArgs e)
