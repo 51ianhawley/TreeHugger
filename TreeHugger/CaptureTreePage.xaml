@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TreeHugger.CaptureTreePage"
+             Title="Capture Tree Page">
+    <ScrollView
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <StackLayout>
+            <Label x:Name="lblEnterTree"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            VerticalTextAlignment="Start"
+            Text="To add a tree fill out the following information:"/>
+            <Button x:Name="btnTakePhoto"
+                WidthRequest="200"
+                HeightRequest="75"
+                    Padding="20"
+                Clicked="btnTakePhoto_Clicked"
+                Text="Take Picture of Tree" 
+                BackgroundColor="ForestGreen"/>
+            <Grid RowSpacing="50" ColumnSpacing="100"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <!-- Define rows -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Define columns -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblName" Text="Name:" Grid.Row="0" Grid.Column="0"/>
+                <Entry Grid.Row="0" Grid.Column="1" x:Name="NameENT" Placeholder="Bob MapleSeed"/>
+
+                <Label x:Name="lblSpecies" Text="Species:" Grid.Row="1" Grid.Column="0"/>
+                <Picker Grid.Row="1" Grid.Column="1" x:Name="pckSpeices"/>
+
+                <Label x:Name="lblLocation" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Text="Location:"/>
+
+                <Label x:Name="lblLatitude" Grid.Row="3" Grid.Column="0" Text="Latitude:"/>
+                <Label x:Name="lblLatitudeOutput" Grid.Row="3" Grid.Column="1" Text="44.44444"/>
+
+                <Label x:Name="lblLongitude" Grid.Row="4" Grid.Column="0" Text="Longitude:"/>
+                <Label x:Name="lblLongitudeOutput" Grid.Row="4" Grid.Column="1" Text="89.9999"/>
+                <Label x:Name="lblImage" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1"  Text="Image:"/>
+                <Image x:Name="imgTree" Grid.Row="6" Grid.Column="1"  BackgroundColor="Green"/>
+            </Grid>
+            <Button WidthRequest="75" HeightRequest="75" x:Name="btnAddTree" Text="Add Tree" Clicked="btnAddTree_Clicked" BackgroundColor="LawnGreen"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
