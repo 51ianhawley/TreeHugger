@@ -9,9 +9,9 @@
         <!-- Map (background)-->
         <maps:Map x:Name="map"
                   MapType="Street"
-                  IsZoomEnabled="True"
-                  IsScrollEnabled="True"
-                  IsShowingUser="True"/>
+                  IsZoomEnabled="False"
+                  IsScrollEnabled="False"
+                  IsShowingUser="False"/>
 
         <!-- Mark tree button (bottom center)-->
         <Button Text="MARK TREE"

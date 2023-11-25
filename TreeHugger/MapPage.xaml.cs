@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maui.Controls.Maps;
+using Microsoft.Maui.Maps;
 using TreeHugger.Models;
 
 namespace TreeHugger;
@@ -11,6 +12,20 @@ public partial class MapPage : ContentPage
     public MapPage()
 	{
         InitializeComponent();
+        SetMapSpanOnTimer(1);
+    }
+
+    private async void SetMapSpan()
+    {
+        map.MoveToRegion(new MapSpan(await locationServices.GetCurrentLocation(), 0.01, 0.01));
+    }
+
+    private void SetMapSpanOnTimer(int seconds)
+    {
+        var timer = Application.Current.Dispatcher.CreateTimer();
+        timer.Interval = TimeSpan.FromSeconds(seconds);
+        timer.Tick += (s, e) => SetMapSpan();
+        timer.Start();
     }
 
     private async void MarkTreeButton_Clicked(object sender, EventArgs e)

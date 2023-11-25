@@ -40,17 +40,14 @@ public class LocationServices
         try
         {
             _isCheckingLocation = true;
-
             GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
-
             _cancelTokenSource = new CancellationTokenSource();
-
             Location location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
 
             if (location != null)
                 return location;
             else
-                return null;
+                return await GetCachedLocation();
         }
         // Catch one of the following exceptions:
         //   FeatureNotSupportedException
@@ -59,7 +56,7 @@ public class LocationServices
         catch (Exception ex)
         {
             // Unable to get location
-            return null;
+            return await GetCachedLocation();
         }
         finally
         {
@@ -73,5 +70,4 @@ public class LocationServices
             _cancelTokenSource.Cancel();
     }
 }
-
 
