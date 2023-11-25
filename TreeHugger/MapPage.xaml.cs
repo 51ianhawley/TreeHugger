@@ -7,8 +7,6 @@ namespace TreeHugger;
 public partial class MapPage : ContentPage
 {
 
-    LocationServices locationServices = new();
-
     public MapPage()
 	{
         InitializeComponent();
@@ -17,7 +15,7 @@ public partial class MapPage : ContentPage
 
     private async void SetMapSpan()
     {
-        map.MoveToRegion(new MapSpan(await locationServices.GetCurrentLocation(), 0.01, 0.01));
+        map.MoveToRegion(new MapSpan(await LocationServices.GetCurrentLocation(), 0.01, 0.01));
     }
 
     private void SetMapSpanOnTimer(int seconds)
@@ -35,7 +33,7 @@ public partial class MapPage : ContentPage
             Label = "Some Tree",
             Address = "City",
             Type = PinType.Place,
-            Location = new Location(await locationServices.GetCurrentLocation())
+            Location = new Location(await LocationServices.GetCurrentLocation())
         };
         map.Pins.Add(pin);
         await Navigation.PushAsync(new CaptureTreePage());

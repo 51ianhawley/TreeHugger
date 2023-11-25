@@ -3,10 +3,7 @@ namespace TreeHugger.Models;
 
 public class LocationServices
 {
-    private CancellationTokenSource _cancelTokenSource;
-    private bool _isCheckingLocation;
-
-    public async Task<Location> GetCachedLocation()
+    public static async Task<Location> GetCachedLocation()
     {
         try
         {
@@ -35,14 +32,11 @@ public class LocationServices
         return null;
     }
 
-    public async Task<Location> GetCurrentLocation()
+    public static async Task<Location> GetCurrentLocation()
     {
         try
         {
-            _isCheckingLocation = true;
-            GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
-            _cancelTokenSource = new CancellationTokenSource();
-            Location location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
+            Location location = await Geolocation.Default.GetLocationAsync();
 
             if (location != null)
                 return location;
@@ -58,16 +52,6 @@ public class LocationServices
             // Unable to get location
             return await GetCachedLocation();
         }
-        finally
-        {
-            _isCheckingLocation = false;
-        }
-    }
-
-    public void CancelRequest()
-    {
-        if (_isCheckingLocation && _cancelTokenSource != null && _cancelTokenSource.IsCancellationRequested == false)
-            _cancelTokenSource.Cancel();
     }
 }
 
