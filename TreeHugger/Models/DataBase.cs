@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Text.Json;
 using TreeHugger.Interfaces;
 using TreeHugger.Models;
 
@@ -239,7 +240,7 @@ public class DataBase : IDataBase
             conn.Open(); // open the connection ... now we are connected!
             var cmd = new NpgsqlCommand(); // create the sql commaned
             cmd.Connection = conn; // commands need a connection, an actual command to execute
-            cmd.CommandText = "UPDATE airports SET city = @city, date_visited = @dateVisited, rating = @rating WHERE id = @id;";
+            cmd.CommandText = "UPDATE trees SET species_Id = @speciesId, location = @location, latitude = @latitude, longitude = @longitude, image = @image, comments = @comments WHERE id = @id;";
             cmd.Parameters.AddWithValue("id", treeToUpdate.Id);
             cmd.Parameters.AddWithValue("speciesId", speciesID);
             cmd.Parameters.AddWithValue("location", location);
@@ -279,5 +280,22 @@ public class DataBase : IDataBase
             SelectAllTrees(); //If we delete an tree, we want our ObservableCollection to "refetch", so it's no longer displayed
         }
         return numDeleted > 0;
+    }
+    public ObservableCollection<Comment> GetComments(int Id)
+    {
+        Tree tree = SelectTree(Id);
+        var conn = new NpgsqlConnection(connString);
+        conn.Open();
+        string jsonComments = null;
+        // using() ==> disposable types are properly disposed of, even if there is an exception thrown
+        using var cmd = new NpgsqlCommand($"SELECT comments FROM trees WHERE id = '{Id}';", conn);
+        using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
+        while (reader.Read()) // each time through we get another row in the table (i.e., another Tree)
+        {
+            jsonComments = reader.GetString(0);
+        }
+        ObservableCollection<Comment> comments = new ObservableCollection<Comment>();
+        comments = JsonSerializer.Deserialize<ObservableCollection<Comment>>(jsonComments);
+        return comments;
     }
 }

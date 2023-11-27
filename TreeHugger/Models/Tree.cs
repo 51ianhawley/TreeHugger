@@ -14,7 +14,7 @@ public class Tree : INotifyPropertyChanged
     string _Lattiude;
     string _Longitude;
     Byte[] _Image;
-    ObservableCollection<Comment> _Comments;
+    public ObservableCollection<Comment> _Comments;
     public Tree() 
     {
         this.Id = -1;
@@ -104,11 +104,7 @@ public class Tree : INotifyPropertyChanged
         }
     }
     public ObservableCollection<Comment> Comments { 
-        get { return _Comments; }
-        set { 
-            _Comments = value;
-            OnPropertyChanged(nameof(_Comments));
-        }
+        get { return MauiProgram.BusinessLogic.DataBase.GetComments(this.Id); }
     }
     public String GetComments()
     {

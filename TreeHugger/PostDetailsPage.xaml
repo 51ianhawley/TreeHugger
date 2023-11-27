@@ -18,12 +18,11 @@
         <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
     
         <ScrollView>
+            <VerticalStackLayout>
             <CollectionView x:Name="comments" ItemsSource="{Binding Comments}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Comment">
                         <VerticalStackLayout 
-                        Spacing="25"
-                        Padding="30,0"
                         VerticalOptions="Start">
                             <Label Text="{Binding Username}" VerticalTextAlignment="Center"/>
                             <Label Text="{Binding CommentText}" VerticalTextAlignment="Center"/>
@@ -32,6 +31,12 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+                <Editor x:Name="comment"
+                Placeholder="Leave a comment"
+                HeightRequest="100"/>
+                <!--Completed="Comment_Completed"-->
+                <Button Text="Send Comment" Clicked ="SendComment_Clicked" BackgroundColor="AliceBlue"/>
+            </VerticalStackLayout>  
         </ScrollView>
     </VerticalStackLayout>
 </ContentPage>
