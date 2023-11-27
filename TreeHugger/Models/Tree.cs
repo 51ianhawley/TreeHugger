@@ -1,6 +1,8 @@
 ﻿
 using Microsoft.Maui.Devices.Sensors;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Text.Json;
 
 namespace TreeHugger.Models;
 
@@ -12,6 +14,7 @@ public class Tree : INotifyPropertyChanged
     string _Lattiude;
     string _Longitude;
     Byte[] _Image;
+    ObservableCollection<Comment> _Comments;
     public Tree() 
     {
         this.Id = -1;
@@ -20,8 +23,9 @@ public class Tree : INotifyPropertyChanged
         this._Lattiude = null;
         this._Longitude = null;
         this._Image = null;
+        this._Comments = new ObservableCollection<Comment>();
     }
-    public Tree(int id, int speciesID, string location, string latitude, string longitude, Byte[] image)
+    public Tree(int id, int speciesID, string location, string latitude, string longitude, Byte[] image,string jsonComments)
     {
         this.Id = id;
         this._SpeciesId = speciesID;
@@ -29,6 +33,21 @@ public class Tree : INotifyPropertyChanged
         this._Lattiude = latitude;
         this._Longitude = longitude;
         this._Image = image;
+        if (jsonComments.Length != 0)
+        {
+            try
+            {
+                this._Comments = JsonSerializer.Deserialize<ObservableCollection<Comment>>(jsonComments);
+            }
+            catch 
+            {
+                this._Comments = new ObservableCollection<Comment>();
+            }
+        }
+        else
+        {
+            this._Comments = new ObservableCollection<Comment>();
+        }
     }
     public int Id
     {
@@ -83,6 +102,19 @@ public class Tree : INotifyPropertyChanged
             _Image = value;
             OnPropertyChanged(nameof(_Image));
         }
+    }
+    public ObservableCollection<Comment> Comments { 
+        get { return _Comments; }
+        set { 
+            _Comments = value;
+            OnPropertyChanged(nameof(_Comments));
+        }
+    }
+    public String GetComments()
+    {
+        String jsonComments = "failed converstion to json";
+        jsonComments = JsonSerializer.Serialize(_Comments);
+        return jsonComments;
     }
     public event PropertyChangedEventHandler PropertyChanged;
 

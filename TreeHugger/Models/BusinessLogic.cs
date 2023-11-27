@@ -15,9 +15,11 @@ public class BusinessLogic
     }
 
     public DataBase DataBase { get { return dataBase; } }
+    public String Username { get; set; }
 
     public BusinessLogic()
     {
         dataBase = new DataBase();
+        Username = "Guest";
     }
 }

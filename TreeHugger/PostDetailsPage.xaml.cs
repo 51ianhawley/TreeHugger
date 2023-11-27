@@ -7,6 +7,7 @@ public partial class PostDetailsPage : ContentPage
 	public PostDetailsPage(Tree tree)
 	{
 		InitializeComponent();
-		BindingContext = tree;
+		details.BindingContext = tree;
+		comments.BindingContext = tree.Comments;
 	}
 }

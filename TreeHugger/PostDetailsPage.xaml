@@ -10,11 +10,28 @@
             <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <VerticalStackLayout >
+    <VerticalStackLayout x:Name="details">
         <Label Text="{Binding Id}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Location}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Lattiude}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Longitude}" VerticalTextAlignment="Center" />
         <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
+    
+        <ScrollView>
+            <CollectionView x:Name="comments" ItemsSource="{Binding Comments}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Comment">
+                        <VerticalStackLayout 
+                        Spacing="25"
+                        Padding="30,0"
+                        VerticalOptions="Start">
+                            <Label Text="{Binding Username}" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding CommentText}" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding TimePosted}" VerticalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>
