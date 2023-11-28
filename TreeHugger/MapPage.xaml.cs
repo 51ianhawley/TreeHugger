@@ -39,7 +39,11 @@ public partial class MapPage : ContentPage
         await Navigation.PushAsync(new CaptureTreePage());
         //TakePhoto();
     }
-
+    /// <summary>
+    /// no longer in use
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ProfilePictureButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new ProfilePage());
@@ -59,5 +63,14 @@ public partial class MapPage : ContentPage
             }
 
         }
+    }
+    /// <summary>
+    /// navigates to profile page
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Canvas_StartInteraction(object sender, TouchEventArgs e)
+    {
+        Navigation.PushAsync(new ProfilePage());
     }
 }

@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace TreeHugger.Models;
 
-public class Tree : INotifyPropertyChanged
+public class Tree : INotifyPropertyChanged 
 {
     int _Id;
     int _SpeciesId;

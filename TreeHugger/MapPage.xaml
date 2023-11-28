@@ -2,8 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TreeHugger.MapPage"
+             xmlns:drawable="clr-namespace:TreeHugger.Drawable"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <drawable:StickFigure x:Key="stickFigure" />
+    </ContentPage.Resources>
     <Grid>
         
         <!-- Map (background)-->
@@ -24,7 +28,17 @@
                 Margin="30" />
 
          <!-- Profile picture button (top right)-->
-        <ImageButton
+        <GraphicsView Drawable="{StaticResource stickFigure}"
+                              x:Name="Canvas"
+            WidthRequest="100"
+            HeightRequest="100"
+            BackgroundColor="White"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            Margin="30"
+            StartInteraction="Canvas_StartInteraction"/>
+        <!--<ImageButton    no longer in use!!!
+            
             Source="stick_figure.png"
             Aspect="AspectFill"
             Clicked="ProfilePictureButton_Clicked"
@@ -34,6 +48,6 @@
             CornerRadius="50"
             HorizontalOptions="End"
             VerticalOptions="Start"
-            Margin="30" />
+            Margin="30" />-->
     </Grid>
 </ContentPage>

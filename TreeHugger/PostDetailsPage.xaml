@@ -10,25 +10,34 @@
             <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+    <ScrollView>
     <VerticalStackLayout x:Name="details">
         <Label Text="{Binding Id}" VerticalTextAlignment="Center"/>
-        <Label Text="{Binding Location}" VerticalTextAlignment="Center"/>
+        <Label Text="{Binding SpeciesId}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Lattiude}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Longitude}" VerticalTextAlignment="Center" />
         <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
     
-        <ScrollView>
+        
             <VerticalStackLayout>
             <CollectionView x:Name="comments" ItemsSource="{Binding Comments}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Comment">
+                            <Border>
                         <VerticalStackLayout 
                         VerticalOptions="Start">
-                            <Label Text="{Binding Username}" VerticalTextAlignment="Center"/>
-                            <Label Text="{Binding CommentText}" VerticalTextAlignment="Center"/>
-                            <Label Text="{Binding TimePosted}" VerticalTextAlignment="Center"/>
-                        </VerticalStackLayout>
-                    </DataTemplate>
+                                <Label VerticalTextAlignment="Center">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="Username" />
+                                            <Binding Path="TimePosted" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                                <Label Text="{Binding CommentText}" VerticalTextAlignment="Center"/>
+                            </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
                 <Editor x:Name="comment"
@@ -37,6 +46,7 @@
                 <!--Completed="Comment_Completed"-->
                 <Button Text="Send Comment" Clicked ="SendComment_Clicked" BackgroundColor="AliceBlue"/>
             </VerticalStackLayout>  
-        </ScrollView>
+        
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

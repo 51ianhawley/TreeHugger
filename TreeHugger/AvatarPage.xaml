@@ -6,7 +6,7 @@
              xmlns:model="clr-namespace:TreeHugger.Models"
              x:Class="TreeHugger.AvatarPage"
              x:DataType="model:BusinessLogic"
-             Title="AvatarPage">
+             Title="Avatar">
     <ContentPage.Resources>
         <drawable:StickFigure x:Key="stickFigure" />
         <ResourceDictionary>
