@@ -1,8 +1,10 @@
 ﻿using Npgsql;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Windows.Markup;
 using TreeHugger.Interfaces;
 using TreeHugger.Models;
+using static TreeHugger.Models.ErrorReporting;
 
 public class DataBase : IDataBase
 {
@@ -79,7 +81,7 @@ public class DataBase : IDataBase
     /// adds accessory to database
     /// </summary>
     /// <param name="item">avatar accessory to be added</param>
-    /// <returns></returns>
+    /// <returns>Boolean</returns>
     public Boolean AddAvatarAccessory(Item item)
     {
         //Item(string name, int cost, int xOffset, int yOffset, int xSize,int ySize, Byte[] image)
@@ -104,6 +106,35 @@ public class DataBase : IDataBase
             return false;
         }
         return true;
+    }
+    /// <summary>
+    /// Get all tree species from the database.
+    /// </summary>
+    /// <returns>ObservableCollection<Species></returns>
+    public ObservableCollection<Species> SelectAllSpecies()
+    {
+        ObservableCollection<Species> species = new ObservableCollection<Species>();
+        var conn = new NpgsqlConnection(connString);
+        conn.Open();
+        // using() ==> disposable types are properly disposed of, even if there is an exception thrown
+        using var cmd = new NpgsqlCommand("SELECT * FROM species;", conn);
+        using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
+        while (reader.Read()) // each time through we get another row in the table (i.e., another Tree)
+        {
+            int id = reader.GetInt32(0);
+            string name = reader.GetString(1);
+            string locationsFound = reader.GetString(2);
+            string color = reader.GetString(3);
+            Byte[] exampleImage = (byte[])reader["image"];
+            Species speciesToAdd = new Species(id, 
+                name, 
+                locationsFound, 
+                color, 
+                exampleImage);
+            species.Add(speciesToAdd);
+            
+        }
+        return species;
     }
     /// <summary>
     /// gets all items from database
@@ -148,11 +179,11 @@ public class DataBase : IDataBase
             cmd.Parameters.AddWithValue("id", tree.Id);
             cmd.Parameters.AddWithValue("species_id", tree.SpeciesId);
             cmd.Parameters.AddWithValue("location", tree.Location);
-            cmd.Parameters.AddWithValue("latitude", tree.Lattiude);
+            cmd.Parameters.AddWithValue("latitude", tree.Latitude);
             cmd.Parameters.AddWithValue("longitude", tree.Longitude);
             cmd.Parameters.AddWithValue("image", tree.Image);
             cmd.ExecuteNonQuery(); // used for INSERT, UPDATE & DELETE statements - returns # of affected rows
-            SelectAllTrees();
+            
         }
         catch (Npgsql.PostgresException pe)
         {
@@ -160,6 +191,60 @@ public class DataBase : IDataBase
             return false;
         }
         return true;
+    }
+    /// <summary>
+    /// Adds a species into the database
+    /// </summary>
+    /// <param name="species">Species</param>
+    /// <returns>SpeciesAdditionError</returns>
+    public SpeciesAdditionError InsertSpecies(Species species)
+    {
+        try
+        {
+            using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
+            conn.Open(); // open the connection ... now we are connected!
+            var cmd = new NpgsqlCommand("INSERT INTO species(id, name, locations, color, example_image) VALUES (@id, @name, @color, @example_image)", conn);
+            cmd.Parameters.AddWithValue("id", species.Id);
+            cmd.Parameters.AddWithValue("name", species.Name);
+            cmd.Parameters.AddWithValue("color", species.Color);
+            cmd.Parameters.AddWithValue("example_image", species.ExampleImage);
+            cmd.ExecuteNonQuery(); // used for INSERT, UPDATE & DELETE statements - returns # of affected rows
+            SelectAllSpecies();
+        }
+        catch (Npgsql.PostgresException pe)
+        {
+
+            Console.WriteLine("Species insert failed {0}", pe);
+            return SpeciesAdditionError.DBAdditionError;
+
+        }
+        return SpeciesAdditionError.NoError;
+    }
+    public EditTreeError UpdateTree(Tree tree) 
+    {
+        try
+        {
+            using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
+
+            conn.Open(); // open the connection ... now we are connected
+            var cmd = new NpgsqlCommand("UPDATE trees SET species_id = @species_id, location = @location, latitude = @latitude, longitude = @longitude, image = @image WHERE id = @id", conn);
+
+            cmd.Parameters.AddWithValue("id", tree.Id);
+            cmd.Parameters.AddWithValue("species_id", tree.SpeciesId);
+            cmd.Parameters.AddWithValue("location", tree.Location);
+            cmd.Parameters.AddWithValue("latitude", tree.Latitude);  // Corrected the spelling of Latitude
+            cmd.Parameters.AddWithValue("longitude", tree.Longitude);
+            cmd.Parameters.AddWithValue("image", tree.Image);
+            var numAffected = cmd.ExecuteNonQuery();
+
+            SelectAllTrees();
+        }
+        catch (Npgsql.PostgresException pe)
+        {
+            Console.WriteLine("Update failed, {0}", pe);
+            return EditTreeError.DBEditError;
+        }
+        return EditTreeError.NoError;
     }
 
     /// <summary>
@@ -181,10 +266,10 @@ public class DataBase : IDataBase
             int Id = reader.GetInt32(0);
             int speciesId = reader.GetInt32(1);
             String location = reader.GetString(2);
-            string latitude = reader.GetString(3);
-            string longitude = reader.GetString(4);
+            double latitude = reader.GetDouble(3);
+            double longitude = reader.GetDouble(4);
             byte[] image = (byte[])reader["image"];
-            treeToAdd = new(Id, speciesId, location, latitude, longitude, image);
+            treeToAdd = new Tree(Id, speciesId, location, latitude, longitude, image);
             trees.Add(treeToAdd);
             Console.WriteLine(treeToAdd); // Log the retrieved tree
         }
@@ -209,8 +294,8 @@ public class DataBase : IDataBase
             int _Id = reader.GetInt32(0);
             int speciesId = reader.GetInt32(1);
             String location = reader.GetString(2);
-            string latitude = reader.GetString(3);
-            string longitude = reader.GetString(4);
+            double  latitude = reader.GetDouble(3);
+            double longitude = reader.GetDouble(4);
             byte[] image = (byte[])reader["image"];
             returnTree = new Tree(_Id, speciesId, location, latitude, longitude, image);
             if (returnTree != null)
@@ -225,42 +310,61 @@ public class DataBase : IDataBase
         return null; // Reader failed.
 
     }
+    /// <summary>
+    /// Get the max tree id from the database and add one.
+    /// This gets around auto increment in the database.
+    /// </summary>
+    /// <returns>int</returns>
+    public int GetMaxTreeId()
+    {
+        var conn = new NpgsqlConnection(connString);
+        conn.Open();
+        // using() ==> disposable types are properly disposed of, even if there is an exception thrown
+        using var cmd = new NpgsqlCommand($"SELECT MAX(id) FROM trees", conn);
+        using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
+        int returnId = 0;
+        while (reader.Read()) // each time through we get another row in the table (i.e., another Airport)
+        {
+            returnId = reader.GetInt32(0);
+            if(returnId <= 0)
+            {
+                return 1;
+            }
+            
 
+        }
+        returnId++; // Add 1 to the id. Cockroach db does not have an autoincrement featrue 
+        return returnId; // Reader failed.
+    }
 
-    public Boolean UpdateTree(Tree treeToUpdate, int speciesID, string location, string latitude, string longitude, Byte[] image)
+    public EditSpeciesError UpdateSpecies(Species species)
     {
         try
         {
             using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
-            conn.Open(); // open the connection ... now we are connected!
-            var cmd = new NpgsqlCommand(); // create the sql commaned
-            cmd.Connection = conn; // commands need a connection, an actual command to execute
-            cmd.CommandText = "UPDATE airports SET city = @city, date_visited = @dateVisited, rating = @rating WHERE id = @id;";
-            cmd.Parameters.AddWithValue("id", treeToUpdate.Id);
-            cmd.Parameters.AddWithValue("speciesId", speciesID);
-            cmd.Parameters.AddWithValue("location", location);
-            cmd.Parameters.AddWithValue("latitude", latitude);
-            cmd.Parameters.AddWithValue("longitude", longitude);
-            cmd.Parameters.AddWithValue("image", image);
 
-
-            var numAffected = cmd.ExecuteNonQuery();
-            SelectAllTrees();
+            conn.Open(); // open the connection ... now we are connected
+            var cmd = new NpgsqlCommand("UPDATE species SET name = @name, color = @color, example_image = @example_image WHERE id = @id", conn);
+            cmd.Parameters.AddWithValue("id", species.Id);
+            cmd.Parameters.AddWithValue("name", species.Name);
+            cmd.Parameters.AddWithValue("color", species.Color);
+            cmd.Parameters.AddWithValue("example_image", species.ExampleImage);
+            cmd.ExecuteNonQuery();
         }
         catch (Npgsql.PostgresException pe)
         {
             Console.WriteLine("Update failed, {0}", pe);
-            return false;
+            return EditSpeciesError.DBEditError;
         }
-        return true;
+        return EditSpeciesError.NoError;
     }
     /// <summary>
     /// Delete Tree
     /// Returns true if the delete was completed successfully.
     /// </summary>
-    /// <param name="treeToDelete"></param>
+    /// <param name="treeToDelete">Tree</param>
     /// <returns>Boolean</returns>
-    public Boolean DeleteAirport(Tree treeToDelete)
+    public Boolean DeleteTre(Tree treeToDelete)
     {
         var conn = new NpgsqlConnection(connString);
         conn.Open();

@@ -9,24 +9,24 @@ public class Tree : INotifyPropertyChanged
     int _Id;
     int _SpeciesId;
     string _Location;
-    string _Lattiude;
-    string _Longitude;
+    double _Latitude;
+    double _Longitude;
     Byte[] _Image;
     public Tree() 
     {
         this.Id = -1;
         this._SpeciesId = -1;
         this._Location = null;
-        this._Lattiude = null;
-        this._Longitude = null;
+        this._Latitude = 0;
+        this._Longitude = 0;
         this._Image = null;
     }
-    public Tree(int id, int speciesID, string location, string latitude, string longitude, Byte[] image)
+    public Tree(int id, int speciesId, string location, double latitude, double longitude, Byte[] image)
     {
         this.Id = id;
-        this._SpeciesId = speciesID;
+        this._SpeciesId = speciesId;
         this._Location = location;
-        this._Lattiude = latitude;
+        this._Latitude = latitude;
         this._Longitude = longitude;
         this._Image = image;
     }
@@ -57,21 +57,21 @@ public class Tree : INotifyPropertyChanged
             OnPropertyChanged(nameof(_Location));
         }
     }
-    public string Lattiude
+    public double Latitude
     {
-        get { return _Lattiude; }
+        get { return _Latitude; }
         set
         {
-            _Location = value;
+            _Latitude = value;
             OnPropertyChanged(nameof(_Location));
         }
     }
-    public string Longitude
+    public double Longitude
     {
         get { return _Longitude; }
         set
         {
-            _Location = value;
+            _Longitude = value;
             OnPropertyChanged(nameof(_Longitude));
         }
     }
