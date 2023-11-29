@@ -53,7 +53,7 @@
                 <Label x:Name="lblImage" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1"  Text="Image:"/>
                 <Image x:Name="imgTree" Grid.Row="6" Grid.Column="1"  BackgroundColor="Green"/>
             </Grid>
-            <Button WidthRequest="75" HeightRequest="75" x:Name="btnAddTree" Text="Add Tree" Clicked="btnAddTree_Clicked" BackgroundColor="LawnGreen"/>
+            <Button Padding="20" WidthRequest="175" HeightRequest="75" x:Name="btnAddTree" Text="Add Tree" Clicked="btnAddTree_Clicked" BackgroundColor="LawnGreen"/>
 
         </StackLayout>
     </ScrollView>

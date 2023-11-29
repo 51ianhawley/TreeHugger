@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Windows.Markup;
 using TreeHugger.Interfaces;
 using TreeHugger.Models;
@@ -222,7 +223,7 @@ public class DataBase : IDataBase
         }
         return SpeciesAdditionError.NoError;
     }
-    public EditTreeError UpdateTree(Tree tree) 
+    public EditTreeError UpdateTree(Tree tree)
     {
         try
         {
@@ -248,6 +249,34 @@ public class DataBase : IDataBase
         }
         return EditTreeError.NoError;
     }
+    public Boolean UpdateTree(Tree treeToUpdate, int speciesID, string location, string latitude, string longitude, Byte[] image)
+    {
+        try
+        {
+            using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
+            conn.Open(); // open the connection ... now we are connected!
+            var cmd = new NpgsqlCommand(); // create the sql commaned
+            cmd.Connection = conn; // commands need a connection, an actual command to execute
+            cmd.CommandText = "UPDATE trees SET species_Id = @speciesId, location = @location, latitude = @latitude, longitude = @longitude, image = @image, comments = @comments WHERE id = @id;";
+            cmd.Parameters.AddWithValue("id", treeToUpdate.Id);
+            cmd.Parameters.AddWithValue("speciesId", speciesID);
+            cmd.Parameters.AddWithValue("location", location);
+            cmd.Parameters.AddWithValue("latitude", latitude);
+            cmd.Parameters.AddWithValue("longitude", longitude);
+            cmd.Parameters.AddWithValue("image", image);
+            cmd.Parameters.AddWithValue("comments", treeToUpdate.GetComments());
+
+
+            var numAffected = cmd.ExecuteNonQuery();
+            SelectAllTrees();
+        }
+        catch (Npgsql.PostgresException pe)
+        {
+            Console.WriteLine("Update failed, {0}", pe);
+            return false;
+        }
+        return true;
+    }
 
     /// <summary>
     /// SelectAllTrees
@@ -268,9 +297,10 @@ public class DataBase : IDataBase
             int Id = reader.GetInt32(0);
             int speciesId = reader.GetInt32(1);
             String location = reader.GetString(2);
-            double latitude = reader.GetDouble(3);
-            double longitude = reader.GetDouble(4);
+            string latitude = reader.GetString(3);
+            string longitude = reader.GetString(4);
             byte[] image = (byte[])reader["image"];
+
             treeToAdd = new Tree(Id, speciesId, location, latitude, longitude, image);
             trees.Add(treeToAdd);
             Console.WriteLine(treeToAdd); // Log the retrieved tree
@@ -293,13 +323,14 @@ public class DataBase : IDataBase
         while (reader.Read()) // each time through we get another row in the table (i.e., another Airport)
         {
             Tree returnTree;
-            int _Id = reader.GetInt32(0);
+            int id = reader.GetInt32(0);
             int speciesId = reader.GetInt32(1);
             String location = reader.GetString(2);
-            double  latitude = reader.GetDouble(3);
-            double longitude = reader.GetDouble(4);
+            string  latitude = reader.GetString(3);
+            string longitude = reader.GetString(4);
             byte[] image = (byte[])reader["image"];
-            returnTree = new Tree(_Id, speciesId, location, latitude, longitude, image, comments);
+            string comments = reader.GetString(5);
+            returnTree = new Tree(id, speciesId, location, latitude, longitude, image, comments);
             if (returnTree != null)
             {
                 Console.WriteLine($"Select Tree returned tree: " + Id); // Log the retrieved tree

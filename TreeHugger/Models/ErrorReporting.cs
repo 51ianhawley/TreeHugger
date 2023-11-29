@@ -32,7 +32,7 @@ namespace TreeHugger.Models
             NoLatitudePresent,
             NoLongitudePresent,
             InvalidLatitudeValue,
-            InvaliLongtitudeValue,
+            InvalidLongitudeValue,
             DBEditError,
             DuplicateTreeError,
             NoTreeImagePresent,

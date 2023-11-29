@@ -39,6 +39,7 @@ public class BusinessLogic
         {
             return TreeAdditionError.DuplicateTreeError;
         }
+        
         Tree tree = new Tree(id,
             speciesId, location,
             latitude,
@@ -60,21 +61,17 @@ public class BusinessLogic
         {
             return TreeAdditionError.TreeAlreadyExists;
         }
-        if (string.IsNullOrEmpty(location))
-        {
-            return TreeAdditionError.EmptyLocation;
-        }
-        var latitudeTest = 0.00;
-        if (!double.TryParse(latitude, out latitudeTest))
-        {
-            return TreeAdditionError.InvalidLatitudeValue;
-        }
-        var longitudeTest = 0.00;
-        if (!double.TryParse(longitude, out longitudeTest))
-        {
-            return TreeAdditionError.InvalidLatitudeValue;
-        }
-        if (image.Length > 0)
+        //var latitudeTest = 0.00;
+        //if (!double.TryParse(latitude, out latitudeTest))
+        //{
+        //    return TreeAdditionError.InvalidLatitudeValue;
+        //}
+        //var longitudeTest = 0.00;
+        //if (!double.TryParse(longitude, out longitudeTest))
+        //{
+        //    return TreeAdditionError.InvalidLatitudeValue;
+        //}
+        if (image.Length <= 0)
         {
             return TreeAdditionError.NoTreeImagePresent;
         }
