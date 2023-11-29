@@ -31,7 +31,6 @@ public partial class MapPage : ContentPage
         Pin pin = new()
         {
             Label = "Some Tree",
-            Address = "City",
             Type = PinType.Place,
             Location = new Location(await LocationServices.GetCurrentLocation())
         };

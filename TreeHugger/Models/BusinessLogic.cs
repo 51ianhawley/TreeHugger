@@ -12,9 +12,15 @@ public class BusinessLogic
     {
         get { return dataBase.SelectAllTrees(); }
     }
+
     public ObservableCollection<Item> Items
     {
         get { return dataBase.SelectAllItems(); }
+    }
+
+    public ObservableCollection<TreePin> Pins
+    {
+        get { return dataBase.GenerateAllTeePins(); }
     }
 
     public DataBase DataBase { get { return dataBase; } }
@@ -49,10 +55,6 @@ public class BusinessLogic
             );
         dataBase.InsertTree(tree);
         return TreeAdditionError.NoError;
-        
-        
-        
-
 
     }
     public TreeAdditionError CheckTreeFields(int id, String location, String latitude, String longitude, Byte[] image)

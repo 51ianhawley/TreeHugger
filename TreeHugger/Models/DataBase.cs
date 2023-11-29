@@ -12,6 +12,8 @@ public class DataBase : IDataBase
 {
     private String connString = GetConnectionString();
     ObservableCollection<Tree> trees = new();
+    ObservableCollection<TreePin> treePins = new();
+
     public ObservableCollection<Tree> Trees
     {
         get { return trees; }
@@ -336,7 +338,7 @@ public class DataBase : IDataBase
                 Console.WriteLine($"Select Tree returned tree: " + Id); // Log the retrieved tree
                 return returnTree;
             }
-            Console.WriteLine($"Select tree did not find an airport with an id of:{Id}");
+            Console.WriteLine($"Select tree did not find a tree with an id of:{Id}");
             return null; // Tree not found.
 
         }
@@ -397,7 +399,7 @@ public class DataBase : IDataBase
     /// </summary>
     /// <param name="treeToDelete">Tree</param>
     /// <returns>Boolean</returns>
-    public Boolean DeleteTre(Tree treeToDelete)
+    public Boolean DeleteTree(Tree treeToDelete)
     {
         var conn = new NpgsqlConnection(connString);
         conn.Open();
@@ -429,4 +431,36 @@ public class DataBase : IDataBase
         comments = JsonSerializer.Deserialize<ObservableCollection<Comment>>(jsonComments);
         return comments;
     }
+
+    public ObservableCollection<TreePin> GenerateAllTeePins()
+    {
+        var conn = new NpgsqlConnection(connString);
+        conn.Open();
+
+        // using() ==> disposable types are properly disposed of, even if there is an exception thrown 
+        using var cmd = new NpgsqlCommand("SELECT id, species_id, latitude, longitude FROM trees", conn);
+        using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
+
+        while (reader.Read()) // each time through we get another row in the table (i.e., another Airport)
+        {
+            int id = reader.GetInt32(0);
+            int speciesId = reader.GetInt32(1);
+
+            // Get the name of the species
+            using var cmd2 = new NpgsqlCommand($"SELECT name FROM species WHERE id = '{speciesId}'", conn);
+            using var reader2 = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
+            reader2.Read();
+
+            String speciesName = reader2.GetString(0);
+
+            String latitude = reader.GetString(2);
+            String longitude = reader.GetString(3);
+            TreePin treePinToAdd = new(id, speciesName, Double.Parse(latitude), Double.Parse(longitude));
+            treePins.Add(treePinToAdd);
+            Console.WriteLine(treePinToAdd);
+        }
+
+        return treePins;
+    }
+
 }
