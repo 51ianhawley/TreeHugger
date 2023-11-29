@@ -71,8 +71,8 @@ public partial class CaptureTreePage : ContentPage
                 var result = MauiProgram.BusinessLogic.AddTree(newTreeId,
                     pckSpeices.SelectedIndex,
                     "Out there",
-                    lblLatitude.Text,
-                    lblLongitude.Text,
+                    lblLatitudeOutput.Text,
+                    lblLongitudeOutput.Text,
                     imgBytes,
                     comments);
                 

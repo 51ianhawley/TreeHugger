@@ -1,3 +1,5 @@
+Sprint 4 changes:
+
 Sprint 3 changes:
 😊😊 connected the trees database to the socialpage
 😊😊😊 created the postPage displays the image of trees

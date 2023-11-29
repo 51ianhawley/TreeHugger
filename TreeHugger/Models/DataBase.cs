@@ -330,7 +330,7 @@ public class DataBase : IDataBase
             string longitude = reader.GetString(4);
             byte[] image = (byte[])reader["image"];
             string comments = reader.GetString(5);
-            returnTree = new Tree(id, speciesId, location, latitude, longitude, image, comments);
+            returnTree = new Tree(id, speciesId, location, latitude, longitude, image);
             if (returnTree != null)
             {
                 Console.WriteLine($"Select Tree returned tree: " + Id); // Log the retrieved tree
@@ -341,6 +341,38 @@ public class DataBase : IDataBase
 
         }
         return null; // Reader failed.
+
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="Id"></param>
+    /// <returns></returns>
+    public String AddCommentToTree(Tree tree, Comment comment)
+    {
+        string jsonComments = tree.GetComments();
+        ObservableCollection<Comment> comments = JsonSerializer.Deserialize<ObservableCollection<Comment>>(jsonComments);
+        comments.Add(comment);
+        jsonComments = JsonSerializer.Serialize<ObservableCollection<Comment>>(comments);
+        try
+        {
+            using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
+
+            conn.Open(); // open the connection ... now we are connected
+            var cmd = new NpgsqlCommand("UPDATE trees SET comments = @jsonComments WHERE id = @id", conn);
+            cmd.Parameters.AddWithValue("id", tree.Id);
+            cmd.Parameters.AddWithValue("jsonComments", jsonComments);
+            cmd.ExecuteNonQuery();
+            SelectAllTrees();
+        }
+        catch (Npgsql.PostgresException pe)
+        {
+            return String.Format("Update failed, {0}", pe);
+            //return EditSpeciesError.DBEditError;
+        }
+
+        return "worked";
+        //return EditSpeciesError.NoError;
 
     }
     /// <summary>

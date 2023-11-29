@@ -11,11 +11,11 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ScrollView>
-    <VerticalStackLayout x:Name="details">
-        <Label Text="{Binding Id}" VerticalTextAlignment="Center"/>
-        <Label Text="{Binding SpeciesId}" VerticalTextAlignment="Center"/>
-        <Label Text="{Binding Lattiude}" VerticalTextAlignment="Center"/>
-        <Label Text="{Binding Longitude}" VerticalTextAlignment="Center" />
+    <VerticalStackLayout x:Name="details" x:DataType="model:Tree">
+        <Label Text="{Binding Id}" HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding SpeciesId}" HorizontalTextAlignment="Center"/>
+            <Label x:Name="latLB" Text="{Binding Latitude, StringFormat='Latitude: {0}'}" HorizontalTextAlignment="Center"/>
+            <Label x:Name="longLB" Text="{Binding Longitude, StringFormat='Longitude: {0}'}" HorizontalTextAlignment="Center" />
         <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
     
         
@@ -44,7 +44,7 @@
                 Placeholder="Leave a comment"
                 HeightRequest="100"/>
                 <!--Completed="Comment_Completed"-->
-                <Button Text="Send Comment" Clicked ="SendComment_Clicked" BackgroundColor="AliceBlue"/>
+                <Button Text="Send Comment" Clicked ="SendComment_Clicked"/>
             </VerticalStackLayout>  
         
     </VerticalStackLayout>

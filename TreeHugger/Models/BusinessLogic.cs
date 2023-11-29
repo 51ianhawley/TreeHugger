@@ -44,8 +44,7 @@ public class BusinessLogic
             speciesId, location,
             latitude,
             longitude,
-            image,
-            serializedComments
+            image
             );
         dataBase.InsertTree(tree);
         return TreeAdditionError.NoError;
