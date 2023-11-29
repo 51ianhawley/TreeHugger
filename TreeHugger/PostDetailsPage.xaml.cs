@@ -18,8 +18,7 @@ public partial class PostDetailsPage : ContentPage
         {
             Comment c = new Comment(comment.Text);
             tree._Comments.Add(c);
-            MauiProgram.BusinessLogic.DataBase.UpdateTree(tree, tree.SpeciesId, tree.Location, tree.Lattiude, tree.Longitude, tree.Image);
-            comments.BindingContext = MauiProgram.BusinessLogic.DataBase.SelectTree(tree.Id);
+            MauiProgram.BusinessLogic.DataBase.UpdateTree(tree, tree.SpeciesId, tree.Location, tree.Latitude, tree.Longitude, tree.Image);
             comment.Placeholder = "comment was saved";
             comment.Text = null;
         }

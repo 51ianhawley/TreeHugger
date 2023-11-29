@@ -11,8 +11,8 @@ public class Tree : INotifyPropertyChanged
     int _Id;
     int _SpeciesId;
     string _Location;
-    double _Latitude;
-    double _Longitude;
+    string _Latitude;
+    string _Longitude;
     Byte[] _Image;
     public ObservableCollection<Comment> _Comments;
     public Tree() 
@@ -20,12 +20,12 @@ public class Tree : INotifyPropertyChanged
         this.Id = -1;
         this._SpeciesId = -1;
         this._Location = null;
-        this._Latitude = 0;
-        this._Longitude = 0;
+        this._Latitude = null;
+        this._Longitude = null;
         this._Image = null;
         this._Comments = new ObservableCollection<Comment>();
     }
-    public Tree(int id, int speciesID, string location, string latitude, string longitude, Byte[] image,string jsonComments)
+    public Tree(int id, int speciesId, string location, string latitude, string longitude, Byte[] image, string jsonComments)
     {
         this.Id = id;
         this._SpeciesId = speciesId;
@@ -33,6 +33,7 @@ public class Tree : INotifyPropertyChanged
         this._Latitude = latitude;
         this._Longitude = longitude;
         this._Image = image;
+        
         if (jsonComments.Length != 0)
         {
             try
@@ -48,6 +49,15 @@ public class Tree : INotifyPropertyChanged
         {
             this._Comments = new ObservableCollection<Comment>();
         }
+    }
+    public Tree(int id, int speciesId, string location, string latitude, string longitude, Byte[] image)
+    {
+        this.Id = id;
+        this._SpeciesId = speciesId;
+        this._Location = location;
+        this._Latitude = latitude;
+        this._Longitude = longitude;
+        this._Image = image;
     }
     public int Id
     {
@@ -76,7 +86,7 @@ public class Tree : INotifyPropertyChanged
             OnPropertyChanged(nameof(_Location));
         }
     }
-    public double Latitude
+    public string Latitude
     {
         get { return _Latitude; }
         set
@@ -85,7 +95,7 @@ public class Tree : INotifyPropertyChanged
             OnPropertyChanged(nameof(_Location));
         }
     }
-    public double Longitude
+    public string Longitude
     {
         get { return _Longitude; }
         set

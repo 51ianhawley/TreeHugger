@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using static TreeHugger.Models.ErrorReporting;
 
 namespace TreeHugger.Models;
@@ -23,10 +25,12 @@ public class BusinessLogic
         dataBase = new DataBase();
         Username = "Guest";
     }
-    public TreeAdditionError AddTree(int id, int speciesId,  string location, string latitude, string longitude, Byte[] image)
+
+    public TreeAdditionError AddTree(int id, int speciesId, string location, string latitude, string longitude, Byte[] image, ObservableCollection<Comment> comments)
     {
         
         var result = CheckTreeFields(id, location, latitude, longitude, image);
+        var serializedComments = JsonSerializer.Serialize(comments);
         if (result != TreeAdditionError.NoError)
         {
             return result;
@@ -37,9 +41,11 @@ public class BusinessLogic
         }
         Tree tree = new Tree(id,
             speciesId, location,
-            Double.Parse(latitude),
-            Double.Parse(longitude),
-            image);
+            latitude,
+            longitude,
+            image,
+            serializedComments
+            );
         dataBase.InsertTree(tree);
         return TreeAdditionError.NoError;
         
