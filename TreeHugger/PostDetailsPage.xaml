@@ -10,11 +10,33 @@
             <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <VerticalStackLayout >
+    <VerticalStackLayout x:Name="details">
         <Label Text="{Binding Id}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Location}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Lattiude}" VerticalTextAlignment="Center"/>
         <Label Text="{Binding Longitude}" VerticalTextAlignment="Center" />
         <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
+    
+        <ScrollView>
+            <VerticalStackLayout>
+            <CollectionView x:Name="comments" ItemsSource="{Binding Comments}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Comment">
+                        <VerticalStackLayout 
+                        VerticalOptions="Start">
+                            <Label Text="{Binding Username}" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding CommentText}" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding TimePosted}" VerticalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+                <Editor x:Name="comment"
+                Placeholder="Leave a comment"
+                HeightRequest="100"/>
+                <!--Completed="Comment_Completed"-->
+                <Button Text="Send Comment" Clicked ="SendComment_Clicked" BackgroundColor="AliceBlue"/>
+            </VerticalStackLayout>  
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>

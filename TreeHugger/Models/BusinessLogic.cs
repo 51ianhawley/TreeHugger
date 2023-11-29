@@ -16,10 +16,12 @@ public class BusinessLogic
     }
 
     public DataBase DataBase { get { return dataBase; } }
+    public String Username { get; set; }
 
     public BusinessLogic()
     {
         dataBase = new DataBase();
+        Username = "Guest";
     }
     public TreeAdditionError AddTree(int id, int speciesId,  string location, string latitude, string longitude, Byte[] image)
     {

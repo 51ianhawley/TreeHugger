@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Text.Json;
 using System.Windows.Markup;
 using TreeHugger.Interfaces;
 using TreeHugger.Models;
@@ -38,7 +39,7 @@ public class DataBase : IDataBase
 
     }
     /// <summary>
-    /// Creates tree table in our database to add new trees
+    /// Creates tree table in our database to add new trees. TABLES HAS BEEN MODIFIED SINCE THIS METHOD WAS USED!!!
     /// </summary>
     /// <param name="connString"></param>
     static void CreateTreeTable(string connString)
@@ -175,13 +176,14 @@ public class DataBase : IDataBase
         {
             using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
             conn.Open(); // open the connection ... now we are connected!
-            var cmd = new NpgsqlCommand("INSERT INTO trees (id, species_id, location, latitude, longitude, image) VALUES (@id, @species_id, @location, @latitude, @longitude, @image)", conn);
+            var cmd = new NpgsqlCommand("INSERT INTO trees (id, species_id, location, latitude, longitude, image,comments) VALUES (@id, @species_id, @location, @latitude, @longitude, @image,@comments)", conn);
             cmd.Parameters.AddWithValue("id", tree.Id);
             cmd.Parameters.AddWithValue("species_id", tree.SpeciesId);
             cmd.Parameters.AddWithValue("location", tree.Location);
             cmd.Parameters.AddWithValue("latitude", tree.Latitude);
             cmd.Parameters.AddWithValue("longitude", tree.Longitude);
             cmd.Parameters.AddWithValue("image", tree.Image);
+            cmd.Parameters.AddWithValue("comments", tree.GetComments());
             cmd.ExecuteNonQuery(); // used for INSERT, UPDATE & DELETE statements - returns # of affected rows
             
         }
@@ -259,7 +261,7 @@ public class DataBase : IDataBase
         conn.Open();
         Tree treeToAdd = null;
         // using() ==> disposable types are properly disposed of, even if there is an exception thrown
-        using var cmd = new NpgsqlCommand("SELECT id, species_id, location, latitude, longitude, image FROM trees;", conn);
+        using var cmd = new NpgsqlCommand("SELECT id, species_id, location, latitude, longitude, comments, image FROM trees;", conn);
         using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
         while (reader.Read()) // each time through we get another row in the table (i.e., another Tree)
         {
@@ -286,7 +288,7 @@ public class DataBase : IDataBase
         var conn = new NpgsqlConnection(connString);
         conn.Open();
         // using() ==> disposable types are properly disposed of, even if there is an exception thrown
-        using var cmd = new NpgsqlCommand($"SELECT id, species_id, location, latitude, longitude, image FROM trees WHERE id = '{Id}'", conn);
+        using var cmd = new NpgsqlCommand($"SELECT id, species_id, location, latitude, longitude, comments, image  FROM trees WHERE id = '{Id}'", conn);
         using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
         while (reader.Read()) // each time through we get another row in the table (i.e., another Airport)
         {
@@ -297,7 +299,7 @@ public class DataBase : IDataBase
             double  latitude = reader.GetDouble(3);
             double longitude = reader.GetDouble(4);
             byte[] image = (byte[])reader["image"];
-            returnTree = new Tree(_Id, speciesId, location, latitude, longitude, image);
+            returnTree = new Tree(_Id, speciesId, location, latitude, longitude, image, comments);
             if (returnTree != null)
             {
                 Console.WriteLine($"Select Tree returned tree: " + Id); // Log the retrieved tree
@@ -378,5 +380,22 @@ public class DataBase : IDataBase
             SelectAllTrees(); //If we delete an tree, we want our ObservableCollection to "refetch", so it's no longer displayed
         }
         return numDeleted > 0;
+    }
+    public ObservableCollection<Comment> GetComments(int Id)
+    {
+        Tree tree = SelectTree(Id);
+        var conn = new NpgsqlConnection(connString);
+        conn.Open();
+        string jsonComments = null;
+        // using() ==> disposable types are properly disposed of, even if there is an exception thrown
+        using var cmd = new NpgsqlCommand($"SELECT comments FROM trees WHERE id = '{Id}';", conn);
+        using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
+        while (reader.Read()) // each time through we get another row in the table (i.e., another Tree)
+        {
+            jsonComments = reader.GetString(0);
+        }
+        ObservableCollection<Comment> comments = new ObservableCollection<Comment>();
+        comments = JsonSerializer.Deserialize<ObservableCollection<Comment>>(jsonComments);
+        return comments;
     }
 }
