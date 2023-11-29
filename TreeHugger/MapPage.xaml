@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TreeHugger.MapPage"
+             xmlns:model="clr-namespace:TreeHugger.Models"
              xmlns:drawable="clr-namespace:TreeHugger.Drawable"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              NavigationPage.HasNavigationBar="False">
@@ -12,15 +13,16 @@
         
         <!-- Map (background)-->
         <maps:Map x:Name="map"
+                  x:DataType="model:BusinessLogic"
                   MapType="Street"
                   IsZoomEnabled="False"
                   IsScrollEnabled="False"
                   IsShowingUser="False"
-                  ItemsSource="{Binding TreePin}">
+                  ItemsSource="{Binding Pins}">
             <maps:Map.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="model:TreePin">
                     <maps:Pin Location="{Binding Location}"
-                              Label="{Binding Description}" />
+                              Label="{Binding Name}" />
                 </DataTemplate>    
             </maps:Map.ItemTemplate>
         </maps:Map>

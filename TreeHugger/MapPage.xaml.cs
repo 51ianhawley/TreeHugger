@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls.Maps;
+﻿using System.Collections.ObjectModel;
+using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 using TreeHugger.Models;
 
@@ -6,7 +7,6 @@ namespace TreeHugger;
 
 public partial class MapPage : ContentPage
 {
-
     public MapPage()
 	{
         InitializeComponent();
@@ -28,13 +28,6 @@ public partial class MapPage : ContentPage
 
     private async void MarkTreeButton_Clicked(object sender, EventArgs e)
     {
-        Pin pin = new()
-        {
-            Label = "Some Tree",
-            Type = PinType.Place,
-            Location = new Location(await LocationServices.GetCurrentLocation())
-        };
-        map.Pins.Add(pin);
         await Navigation.PushAsync(new CaptureTreePage());
         //TakePhoto();
     }
