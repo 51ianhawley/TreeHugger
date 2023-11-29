@@ -45,8 +45,6 @@
                 <Label x:Name="lblSpecies" Text="Species:" Grid.Row="1" Grid.Column="0"/>
                 <Picker Grid.Row="1" Grid.Column="1" x:Name="pckSpeices"/>
 
-                <Label x:Name="lblLocation" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Text="Location:"/>
-
                 <Label x:Name="lblLatitude" Grid.Row="3" Grid.Column="0" Text="Latitude:"/>
                 <Label x:Name="lblLatitudeOutput" Grid.Row="3" Grid.Column="1" Text="44.44444"/>
 

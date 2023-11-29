@@ -1,5 +1,7 @@
 
 
+using TreeHugger.Models;
+
 namespace TreeHugger;
 
 public partial class CaptureTreePage : ContentPage
@@ -9,7 +11,17 @@ public partial class CaptureTreePage : ContentPage
 		InitializeComponent();
         var items = new List<string> { "Birch", "Oak", "Pine" };
         pckSpeices.ItemsSource = items;
-	}
+        SetLocationLabels();
+    }
+    /// <summary>
+    /// sets labels to show latitude and longitude on the CaptureTreePage
+    /// </summary>
+    private async void SetLocationLabels()
+    {
+        Location location = await LocationServices.GetCurrentLocation();
+        lblLongitudeOutput.Text = location.Longitude.ToString();
+        lblLatitudeOutput.Text = location.Latitude.ToString();
+    }
 
 	private async void btnTakePhoto_Clicked(object sender, EventArgs e)
 	{

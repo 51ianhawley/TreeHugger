@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TreeHugger.Models;
 
-public class Comment
+public class Comment : INotifyPropertyChanged
 {
     String userName;
     String commentText;
@@ -18,6 +19,7 @@ public class Comment
         }
         set
         {
+            OnPropertyChanged(nameof(userName));
             userName = value;
         }
     }
@@ -29,6 +31,7 @@ public class Comment
         }
         set
         {
+            OnPropertyChanged(nameof(commentText));
             commentText = value;
         }
     }
@@ -38,7 +41,8 @@ public class Comment
             return timePosted; 
         }
         set { 
-            timePosted = value; 
+            timePosted = value;
+            OnPropertyChanged(nameof(timePosted));
         }
     }
 
@@ -47,5 +51,12 @@ public class Comment
         this.userName = MauiProgram.BusinessLogic.Username == null ? "Guest" : MauiProgram.BusinessLogic.Username;
         this.commentText = commentText;
         this.timePosted = DateTime.Now;
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected virtual void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
