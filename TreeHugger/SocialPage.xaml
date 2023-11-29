@@ -11,6 +11,7 @@
             <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+    <ScrollView x:Name="scrollview">
     <VerticalStackLayout>
         
             <CollectionView x:Name="CV" ItemsSource="{Binding Trees}" SelectionMode="Single">
@@ -32,11 +33,12 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        <!--<ScrollView>
-        </ScrollView>-->
-        <VerticalStackLayout>
+        
+            <VerticalStackLayout>
+    
             <Label Text="please select a post and click button to see details"/>
             <Button Clicked="Tree_Clicked" BackgroundColor="BlueViolet" Text="Details"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

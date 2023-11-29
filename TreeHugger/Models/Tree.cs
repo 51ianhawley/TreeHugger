@@ -14,7 +14,6 @@ public class Tree : INotifyPropertyChanged
     string _Latitude;
     string _Longitude;
     Byte[] _Image;
-    public ObservableCollection<Comment> _Comments;
     public Tree() 
     {
         this.Id = -1;
@@ -23,32 +22,6 @@ public class Tree : INotifyPropertyChanged
         this._Latitude = null;
         this._Longitude = null;
         this._Image = null;
-        this._Comments = new ObservableCollection<Comment>();
-    }
-    public Tree(int id, int speciesId, string location, string latitude, string longitude, Byte[] image, string jsonComments)
-    {
-        this.Id = id;
-        this._SpeciesId = speciesId;
-        this._Location = location;
-        this._Latitude = latitude;
-        this._Longitude = longitude;
-        this._Image = image;
-        
-        if (jsonComments.Length != 0)
-        {
-            try
-            {
-                this._Comments = JsonSerializer.Deserialize<ObservableCollection<Comment>>(jsonComments);
-            }
-            catch 
-            {
-                this._Comments = new ObservableCollection<Comment>();
-            }
-        }
-        else
-        {
-            this._Comments = new ObservableCollection<Comment>();
-        }
     }
     public Tree(int id, int speciesId, string location, string latitude, string longitude, Byte[] image)
     {
@@ -119,7 +92,7 @@ public class Tree : INotifyPropertyChanged
     public String GetComments()
     {
         String jsonComments = "failed converstion to json";
-        jsonComments = JsonSerializer.Serialize(_Comments);
+        jsonComments = JsonSerializer.Serialize(Comments);
         return jsonComments;
     }
     public event PropertyChangedEventHandler PropertyChanged;
