@@ -67,26 +67,33 @@ public partial class CaptureTreePage : ContentPage
                     await fileStream.ReadAsync(imgBytes, 0, imgBytes.Length);
 
                 }
-
-                var result = MauiProgram.BusinessLogic.AddTree(newTreeId,
-                    pckSpeices.SelectedIndex,
-                    "Out there",
-                    lblLatitudeOutput.Text,
-                    lblLongitudeOutput.Text,
-                    imgBytes,
-                    comments);
+                var newTree = new Tree(newTreeId, pckSpeices.SelectedIndex, "Somewhere", lblLatitudeOutput.Text, lblLongitudeOutput.Text, imgBytes);
+                newTree.Comments.Add(new Comment("Nice tree dude"));
+                var result = MauiProgram.BusinessLogic.DataBase.InsertTree(newTree);
+                //var result = MauiProgram.BusinessLogic.AddTree(newTreeId,
+                //    pckSpeices.SelectedIndex,
+                //    "Out there",
+                //    lblLatitudeOutput.Text,
+                //    lblLongitudeOutput.Text,
+                //    imgBytes,
+                //    comments);
+                //await Navigation.PushAsync(new MainTabbedPage());
                 
-                if (result != ErrorReporting.TreeAdditionError.NoError)
+                if (result != true)
                 {
                     Console.WriteLine("OPE The tree was not added correctly: " + result.ToString());
+                    await Navigation.PushAsync(new MainTabbedPage()); // Go back to the main page if something went wrong.
+
                 }
+                await Navigation.PushAsync(new PostDetailsPage(newTree));
 
             }
             else
             {
                 Console.WriteLine("The image was not written to the local cache directory.");
-            }
 
+            }
+            //await Navigation.PushAsync(new MainTabbedPage()); // Go back to the main page if something went wrong.
         }
         catch (Exception ex)
         {

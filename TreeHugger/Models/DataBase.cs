@@ -179,14 +179,14 @@ public class DataBase : IDataBase
         {
             using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
             conn.Open(); // open the connection ... now we are connected!
-            var cmd = new NpgsqlCommand("INSERT INTO trees (id, species_id, location, latitude, longitude, image,comments) VALUES (@id, @species_id, @location, @latitude, @longitude, @image,@comments)", conn);
+            var cmd = new NpgsqlCommand("INSERT INTO trees (id, species_id, location, latitude, longitude, image) VALUES (@id, @species_id, @location, @latitude, @longitude, @image)", conn);
             cmd.Parameters.AddWithValue("id", tree.Id);
             cmd.Parameters.AddWithValue("species_id", tree.SpeciesId);
             cmd.Parameters.AddWithValue("location", tree.Location);
             cmd.Parameters.AddWithValue("latitude", tree.Latitude);
             cmd.Parameters.AddWithValue("longitude", tree.Longitude);
             cmd.Parameters.AddWithValue("image", tree.Image);
-            cmd.Parameters.AddWithValue("comments", tree.GetComments());
+            //cmd.Parameters.AddWithValue("comments", tree.GetComments());
             cmd.ExecuteNonQuery(); // used for INSERT, UPDATE & DELETE statements - returns # of affected rows
             
         }
