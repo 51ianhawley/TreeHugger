@@ -67,6 +67,7 @@ public partial class CaptureTreePage : ContentPage
                     await fileStream.ReadAsync(imgBytes, 0, imgBytes.Length);
 
                 }
+                // Code is having an issue that will be resolved by the presentation involving an invocation exception that is being thrown in the Post details page.
                 var newTree = new Tree(newTreeId, pckSpeices.SelectedIndex, "Somewhere", lblLatitudeOutput.Text, lblLongitudeOutput.Text, imgBytes);
                 newTree.Comments.Add(new Comment("Nice tree dude"));
                 var result = MauiProgram.BusinessLogic.DataBase.InsertTree(newTree);
@@ -77,7 +78,7 @@ public partial class CaptureTreePage : ContentPage
                 //    lblLongitudeOutput.Text,
                 //    imgBytes,
                 //    comments);
-                //await Navigation.PushAsync(new MainTabbedPage());
+                await Navigation.PushAsync(new MainTabbedPage());
                 
                 if (result != true)
                 {
@@ -85,7 +86,8 @@ public partial class CaptureTreePage : ContentPage
                     await Navigation.PushAsync(new MainTabbedPage()); // Go back to the main page if something went wrong.
 
                 }
-                await Navigation.PushAsync(new PostDetailsPage(newTree));
+                Console.WriteLine("got here");
+                //await Navigation.PushAsync(new PostDetailsPage(newTree));
 
             }
             else

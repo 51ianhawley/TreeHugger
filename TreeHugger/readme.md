@@ -1,5 +1,7 @@
 Sprint 4 changes:
 Fix accessory display issue: did not have time to fix the image display issue.
+Last minute code conflicts with post details page.
+
 √ Create class to contain information for all comments per post
 √ Modify/ create database to contain comments
 √ Modify PostDetailsPage to accept comments and send data to database
