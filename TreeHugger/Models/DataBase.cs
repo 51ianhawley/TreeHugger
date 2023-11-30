@@ -187,7 +187,7 @@ public class DataBase : IDataBase
             cmd.Parameters.AddWithValue("longitude", tree.Longitude);
             cmd.Parameters.AddWithValue("image", tree.Image);
             //cmd.Parameters.AddWithValue("comments", tree.GetComments());
-            cmd.ExecuteNonQuery(); // used for INSERT, UPDATE & DELETE statements - returns # of affected rows
+            int rowsEffected = cmd.ExecuteNonQuery(); // used for INSERT, UPDATE & DELETE statements - returns # of affected rows
             
         }
         catch (Npgsql.PostgresException pe)
@@ -331,6 +331,11 @@ public class DataBase : IDataBase
             string  latitude = reader.GetString(3);
             string longitude = reader.GetString(4);
             byte[] image = (byte[])reader["image"];
+            if (reader.IsDBNull(5))
+            {
+                CommentsAreNull(Id);
+                return SelectTree(Id);
+            }
             string comments = reader.GetString(5);
             returnTree = new Tree(id, speciesId, location, latitude, longitude, image);
             if (returnTree != null)
@@ -457,11 +462,41 @@ public class DataBase : IDataBase
         using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
         while (reader.Read()) // each time through we get another row in the table (i.e., another Tree)
         {
-            jsonComments = reader.GetString(0);
+            if (reader.IsDBNull(0))
+            {
+                return CommentsAreNull(Id);
+            }
+            else
+            {
+                jsonComments = reader.GetString(0);
+            }
         }
         ObservableCollection<Comment> comments = new ObservableCollection<Comment>();
         comments = JsonSerializer.Deserialize<ObservableCollection<Comment>>(jsonComments);
         return comments;
+    }
+    public ObservableCollection<Comment> CommentsAreNull(int Id)
+    {
+        string jsonComments = JsonSerializer.Serialize<ObservableCollection<Comment>>(new ObservableCollection<Comment>());
+        try
+        {
+            using var conn = new NpgsqlConnection(connString); // conn, short for connection, is a connection to the database
+
+            conn.Open(); // open the connection ... now we are connected
+            var cmd = new NpgsqlCommand("UPDATE trees SET comments = @jsonComments WHERE id = @id", conn);
+            cmd.Parameters.AddWithValue("id", Id);
+            cmd.Parameters.AddWithValue("jsonComments", jsonComments);
+            int rowsEffected = cmd.ExecuteNonQuery();
+        }
+        catch (Npgsql.PostgresException pe)
+        {
+            //return String.Format("Update failed, {0}", pe);
+            //return EditSpeciesError.DBEditError;
+        }
+
+        return GetComments(Id);
+        //return EditSpeciesError.NoError;
+
     }
 
     public ObservableCollection<TreePin> GenerateAllTeePins()

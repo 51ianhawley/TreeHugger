@@ -69,7 +69,6 @@ public partial class CaptureTreePage : ContentPage
                 }
                 // Code is having an issue that will be resolved by the presentation involving an invocation exception that is being thrown in the Post details page.
                 var newTree = new Tree(newTreeId, pckSpeices.SelectedIndex, "Somewhere", lblLatitudeOutput.Text, lblLongitudeOutput.Text, imgBytes);
-                newTree.Comments.Add(new Comment("Nice tree dude"));
                 var result = MauiProgram.BusinessLogic.DataBase.InsertTree(newTree);
                 //var result = MauiProgram.BusinessLogic.AddTree(newTreeId,
                 //    pckSpeices.SelectedIndex,
