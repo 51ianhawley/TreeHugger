@@ -8,10 +8,10 @@
              android:TabbedPage.IsSwipePagingEnabled="False">
     <TabbedPage.Children>
 
-        <!-- Tab for the statistics page -->
-        <NavigationPage Title="Statistics Page">
+        <!-- Tab for the social page -->
+        <NavigationPage Title="Social Page">
             <x:Arguments>
-                <local:StatisticsPage />
+                <local:SocialPage />
             </x:Arguments>
         </NavigationPage>
 
@@ -22,12 +22,6 @@
             </x:Arguments>
         </NavigationPage>
 
-        <!-- Tab for the social page -->
-        <NavigationPage Title="Social Page">
-            <x:Arguments>
-                <local:SocialPage />
-            </x:Arguments>
-        </NavigationPage>
          <!--Tab for the shop page-->
         <NavigationPage Title="Avatar Page">
             <x:Arguments>
