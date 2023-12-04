@@ -59,6 +59,9 @@
 	  <None Remove="Resources\Images\scared_face.png" />
 	  <None Remove="Resources\Images\scared_face_hi.png" />
 	  <None Remove="Resources\Images\stick_figure.png" />
+	  <None Remove="Resources\Images\tree.png" />
+	  <None Remove="Resources\Images\write.png" />
+	  <None Remove="Resources\Images\mapIcon.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\Images\blue_baseball_cap.png" />
@@ -67,6 +70,9 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiImage Include="Resources\Images\scared_face.png" />
+	  <MauiImage Include="Resources\Images\tree.png" />
+	  <MauiImage Include="Resources\Images\map_icon.png" />
+	  <MauiImage Include="Resources\Images\write.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiImage Include="Resources\Images\blue_cap.png" />
