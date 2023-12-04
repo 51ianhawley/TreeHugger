@@ -13,7 +13,7 @@
     </ContentPage.Resources>
     <ScrollView x:Name="scrollview">
     <VerticalStackLayout>
-        
+
             <CollectionView x:Name="CV" ItemsSource="{Binding Trees}" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Tree">
@@ -26,19 +26,14 @@
                         Spacing="25"
                         Padding="30,0"
                         VerticalOptions="Start">
-                                <Label Text="{Binding Id}" VerticalTextAlignment="Center"/>
-                                <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
+                                <Label Text="{Binding Location}" VerticalTextAlignment="Center"/>
+                                <ImageButton Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Command ="{Binding NavigateToDetailsCommand}"/>
+                                <Button Text="delete" BackgroundColor="BlueViolet" Command="{Binding DeleteCommand}" />
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        
-            <VerticalStackLayout>
-    
-            <Label Text="please select a post and click button to see details"/>
-            <Button Clicked="Tree_Clicked" BackgroundColor="BlueViolet" Text="Details"/>
         </VerticalStackLayout>
-    </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

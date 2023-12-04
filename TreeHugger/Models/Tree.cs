@@ -3,6 +3,7 @@ using Microsoft.Maui.Devices.Sensors;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text.Json;
+using System.Windows.Input;
 
 namespace TreeHugger.Models;
 
@@ -31,6 +32,8 @@ public class Tree : INotifyPropertyChanged
         this._Latitude = latitude;
         this._Longitude = longitude;
         this._Image = image;
+        DeleteCommand = new Command(Delete);
+        NavigateToDetailsCommand = new Command(NavigateToDetails);
     }
     public int Id
     {
@@ -89,6 +92,8 @@ public class Tree : INotifyPropertyChanged
     public ObservableCollection<Comment> Comments { 
         get { return MauiProgram.BusinessLogic.DataBase.GetComments(this.Id); }
     }
+    public ICommand DeleteCommand { get; }
+    public ICommand NavigateToDetailsCommand { get; }
     public String GetComments()
     {
         String jsonComments = "failed converstion to json";
@@ -100,6 +105,15 @@ public class Tree : INotifyPropertyChanged
     protected virtual void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public void Delete()
+    {
+        MauiProgram.BusinessLogic.DataBase.DeleteTree(this);
+    }
+    public async void NavigateToDetails()
+    {
+        await  App.Current.MainPage.Navigation.PushAsync(new PostDetailsPage(this));
     }
 }
 
