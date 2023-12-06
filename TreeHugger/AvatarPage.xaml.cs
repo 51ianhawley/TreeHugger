@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text.Json;
 using TreeHugger.Drawable;
 namespace TreeHugger;
 
@@ -7,8 +8,20 @@ public partial class AvatarPage : ContentPage
 	public AvatarPage()
 	{
         BindingContext = MauiProgram.BusinessLogic;
-        InitializeComponent();       
-        
+        InitializeComponent();
+        //username changing
+        string fullPathUsername = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "username");
+
+        string jsonUsername;
+        if (!File.Exists(fullPathUsername))
+        {
+            jsonUsername = JsonSerializer.Serialize(MauiProgram.BusinessLogic.Username);
+            File.WriteAllText(fullPathUsername, jsonUsername);
+        }
+        jsonUsername = File.ReadAllText(fullPathUsername);
+        MauiProgram.BusinessLogic.Username = JsonSerializer.Deserialize<string>(jsonUsername);
+        usernameEntry.Text = MauiProgram.BusinessLogic.Username;
+
         StickFigure sf = (StickFigure)Resources["stickFigure"];
         Image image;
         if (!sf.OwnedItems.Contains(0))
@@ -102,5 +115,16 @@ public partial class AvatarPage : ContentPage
     private void Buy_Clicked(object sender, EventArgs e)
     {
         return;
+    }
+
+    private void usernameEntry_Completed(object sender, EventArgs e)
+    {
+        MauiProgram.BusinessLogic.Username = usernameEntry.Text;
+        string jsonUsername = JsonSerializer.Serialize(MauiProgram.BusinessLogic.Username);
+        string fullPathUsername = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "username");
+        File.WriteAllText(fullPathUsername, jsonUsername);
+        usernameEntry.Text = String.Empty;
+        usernameEntry.Placeholder = "Your username has been saved as " + MauiProgram.BusinessLogic.Username;
+        usernameLabel.IsVisible = false;
     }
 }

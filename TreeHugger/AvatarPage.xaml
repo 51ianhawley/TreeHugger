@@ -14,9 +14,12 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <VerticalStackLayout>
-       
-            <Button Text="Shop" Clicked="Shop_Clicked"/>
-            <GraphicsView Drawable="{StaticResource stickFigure}"
+        <HorizontalStackLayout>
+            <Label x:Name="usernameLabel" Text="Set Your Username:" FontSize="Large"/>
+            <Entry x:Name="usernameEntry" Completed="usernameEntry_Completed" FontSize="Medium"/>
+        </HorizontalStackLayout>
+        
+        <GraphicsView Drawable="{StaticResource stickFigure}"
                               x:Name="Canvas"
                               HeightRequest="200"
                               WidthRequest="95"
