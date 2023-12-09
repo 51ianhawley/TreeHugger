@@ -514,10 +514,10 @@ public class DataBase : IDataBase
             int id = reader.GetInt32(0);
             int speciesId = reader.GetInt32(1);
 
-            double latitude = reader.GetDouble(2);
-            double longitude = reader.GetDouble(3);
+            String latitude = reader.GetString(2);
+            String longitude = reader.GetString(3);
             String speciesName = reader.GetString(4);
-            Location location = new(latitude, longitude);
+            Location location = new(Double.Parse(latitude), Double.Parse(longitude));
             Pin treePinToAdd = new() { Label = speciesName, Location = location };
             treePins.Add(treePinToAdd);
             Console.WriteLine(treePinToAdd);
