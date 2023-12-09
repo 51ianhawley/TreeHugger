@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Microsoft.Maui.Controls.Maps;
+using Npgsql;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Text.Json;
@@ -12,7 +13,7 @@ public class DataBase : IDataBase
 {
     private String connString = GetConnectionString();
     ObservableCollection<Tree> trees = new();
-    ObservableCollection<TreePin> treePins = new();
+    ObservableCollection<Pin> treePins = new();
 
     public ObservableCollection<Tree> Trees
     {
@@ -499,7 +500,7 @@ public class DataBase : IDataBase
 
     }
 
-    public ObservableCollection<TreePin> GenerateAllTeePins()
+    public ObservableCollection<Pin> GenerateAllTeePins()
     {
         var conn = new NpgsqlConnection(connString);
         conn.Open();
@@ -522,7 +523,8 @@ public class DataBase : IDataBase
 
             String latitude = reader.GetString(2);
             String longitude = reader.GetString(3);
-            TreePin treePinToAdd = new(id, speciesName, Double.Parse(latitude), Double.Parse(longitude));
+            Location location = new(Double.Parse(latitude), Double.Parse(longitude));
+            Pin treePinToAdd = new() { Label = speciesName, Location = location };
             treePins.Add(treePinToAdd);
             Console.WriteLine(treePinToAdd);
         }

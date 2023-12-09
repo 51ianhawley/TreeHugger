@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.Maui.Controls.Maps;
 using static TreeHugger.Models.ErrorReporting;
 
 namespace TreeHugger.Models;
@@ -18,7 +19,7 @@ public class BusinessLogic
         get { return dataBase.SelectAllItems(); }
     }
 
-    public ObservableCollection<TreePin> Pins
+    public ObservableCollection<Pin> Pins
     {
         get { return dataBase.GenerateAllTeePins(); }
     }

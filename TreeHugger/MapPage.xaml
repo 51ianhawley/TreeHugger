@@ -18,14 +18,7 @@
                   MapType="Street"
                   IsZoomEnabled="False"
                   IsScrollEnabled="False"
-                  IsShowingUser="False"
-                  ItemsSource="{Binding Pins}">
-            <maps:Map.ItemTemplate>
-                <DataTemplate x:DataType="model:TreePin">
-                    <maps:Pin Location="{Binding Location}"
-                              Label="{Binding Name}" />
-                </DataTemplate>    
-            </maps:Map.ItemTemplate>
+                  IsShowingUser="False">
         </maps:Map>
 
         <!-- Mark tree button (bottom center)-->

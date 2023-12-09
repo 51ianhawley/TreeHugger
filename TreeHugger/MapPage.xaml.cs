@@ -11,6 +11,17 @@ public partial class MapPage : ContentPage
 	{
         InitializeComponent();
         MoveMapToCurrentLocation();
+        PopulateMapWithPins();
+    }
+
+    private void PopulateMapWithPins()
+    {
+        ObservableCollection<Pin> pins = MauiProgram.BusinessLogic.Pins;
+
+        foreach (Pin pin in pins)
+        {
+            map.Pins.Add(pin);
+        }
     }
 
     private async void MoveMapToCurrentLocation()
