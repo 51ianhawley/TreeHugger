@@ -506,7 +506,7 @@ public class DataBase : IDataBase
         conn.Open();
 
         // using() ==> disposable types are properly disposed of, even if there is an exception thrown 
-        using var cmd = new NpgsqlCommand("SELECT id, species_id, latitude, longitude FROM trees", conn);
+        using var cmd = new NpgsqlCommand("SELECT t.id, t.species_id, t.latitude, t.longitude, s.name FROM trees t JOIN public.species s on s.id = t.species_id;", conn);
         using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
 
         while (reader.Read()) // each time through we get another row in the table (i.e., another Airport)
@@ -514,16 +514,10 @@ public class DataBase : IDataBase
             int id = reader.GetInt32(0);
             int speciesId = reader.GetInt32(1);
 
-            // Get the name of the species
-            using var cmd2 = new NpgsqlCommand($"SELECT name FROM species WHERE id = '{speciesId}'", conn);
-            using var reader2 = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
-            reader2.Read();
-
-            String speciesName = reader2.GetString(0);
-
-            String latitude = reader.GetString(2);
-            String longitude = reader.GetString(3);
-            Location location = new(Double.Parse(latitude), Double.Parse(longitude));
+            double latitude = reader.GetDouble(2);
+            double longitude = reader.GetDouble(3);
+            String speciesName = reader.GetString(4);
+            Location location = new(latitude, longitude);
             Pin treePinToAdd = new() { Label = speciesName, Location = location };
             treePins.Add(treePinToAdd);
             Console.WriteLine(treePinToAdd);
