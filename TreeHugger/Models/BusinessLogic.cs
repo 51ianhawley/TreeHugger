@@ -23,6 +23,10 @@ public class BusinessLogic
     {
         get { return dataBase.GenerateAllTeePins(); }
     }
+    public ObservableCollection<Species> Species
+    {
+        get { return dataBase.SelectAllSpecies(); }
+    }
 
     public DataBase DataBase { get { return dataBase; } }
     public String Username { get; set; }

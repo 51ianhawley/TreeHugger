@@ -14,6 +14,13 @@ public partial class CaptureTreePage : ContentPage
 		InitializeComponent();
         var items = new List<string> { "Birch", "Oak", "Pine" };
         pckSpeices.ItemsSource = items;
+        //var obsrvColSpecies = MauiProgram.BusinessLogic.Species;
+        //var pckItemsToAdd = new List<string>();
+        //foreach(var species in obsrvColSpecies)
+        //{
+        //    pckItemsToAdd.Add(species.Name);
+        //}
+        //pckSpeices.ItemsSource = pckItemsToAdd;
         SetLocationLabels();
     }
     /// <summary>

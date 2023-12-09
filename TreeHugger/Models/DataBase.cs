@@ -122,7 +122,7 @@ public class DataBase : IDataBase
         var conn = new NpgsqlConnection(connString);
         conn.Open();
         // using() ==> disposable types are properly disposed of, even if there is an exception thrown
-        using var cmd = new NpgsqlCommand("SELECT * FROM species;", conn);
+        using var cmd = new NpgsqlCommand("SELECT * FROM species", conn);
         using var reader = cmd.ExecuteReader(); // used for SELECT statement, returns a forward-only traversable object
         while (reader.Read()) // each time through we get another row in the table (i.e., another Tree)
         {
@@ -130,8 +130,10 @@ public class DataBase : IDataBase
             string name = reader.GetString(1);
             string locationsFound = reader.GetString(2);
             string color = reader.GetString(3);
-            Byte[] exampleImage = (byte[])reader["image"];
-            Species speciesToAdd = new Species(id, 
+            String hexImage = reader.GetString(4);
+            byte[] exampleImage = ConvertHexStringToByteArray(hexImage);
+
+            Species speciesToAdd = new (id, 
                 name, 
                 locationsFound, 
                 color, 
@@ -524,6 +526,26 @@ public class DataBase : IDataBase
         }
 
         return treePins;
+    }
+    /// <summary>
+    /// Converts images out of a hex string.
+    /// </summary>
+    /// <param name="hexString"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    private static byte[] ConvertHexStringToByteArray(string hexString)
+    {
+        if (hexString.Length % 2 != 0)
+        {
+            throw new ArgumentException("Hex string must have an even length", "hexString");
+        }
+
+        var bytes = new byte[hexString.Length / 2];
+        for (int i = 0; i < hexString.Length; i += 2)
+        {
+            bytes[i / 2] = Convert.ToByte(hexString.Substring(i, 2), 16);
+        }
+        return bytes;
     }
 
 }
