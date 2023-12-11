@@ -130,8 +130,9 @@ public class DataBase : IDataBase
             string name = reader.GetString(1);
             string locationsFound = reader.GetString(2);
             string color = reader.GetString(3);
-            String hexImage = reader.GetString(4);
-            byte[] exampleImage = ConvertHexStringToByteArray(hexImage);
+            //String hexImage = reader.GetString(4);
+            //byte[] exampleImage = ConvertHexStringToByteArray(hexImage);
+            byte[] exampleImage = (byte[])reader["example_image"];
 
             Species speciesToAdd = new (id, 
                 name, 
