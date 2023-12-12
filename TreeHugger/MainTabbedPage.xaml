@@ -23,10 +23,10 @@
         </NavigationPage>
 
          <!--Tab for the shop page-->
-        <NavigationPage IconImageSource="map_icon.png">
+        <!--<NavigationPage IconImageSource="map_icon.png">
             <x:Arguments>
                 <local:AvatarPage />
             </x:Arguments>
-        </NavigationPage> 
+        </NavigationPage>--> 
     </TabbedPage.Children>
 </TabbedPage>

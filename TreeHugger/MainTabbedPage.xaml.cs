@@ -5,6 +5,6 @@ public partial class MainTabbedPage : TabbedPage
 	public MainTabbedPage()
 	{
 		InitializeComponent();
-        CurrentPage = Children[1]; // Display the map page first
+        CurrentPage = Children[0]; // Display the map page first
     }
 }

@@ -32,7 +32,7 @@
                 Margin="30" />
 
          <!-- Profile picture button (top right)-->
-        <GraphicsView Drawable="{StaticResource stickFigure}"
+        <!--<GraphicsView Drawable="{StaticResource stickFigure}"
                               x:Name="Canvas"
             WidthRequest="100"
             HeightRequest="100"
@@ -40,7 +40,7 @@
             HorizontalOptions="End"
             VerticalOptions="Start"
             Margin="30"
-            StartInteraction="Canvas_StartInteraction"/>
+            StartInteraction="Canvas_StartInteraction"/>-->
         <!--<ImageButton    no longer in use!!!
             
             Source="stick_figure.png"
