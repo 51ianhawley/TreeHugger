@@ -1,9 +1,13 @@
 ﻿<Properties StartupConfiguration="{DAAF0A3E-E93D-4EEE-A18D-FDF9A5BC1DA3}|Default">
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_3a_API_34_extension_level_7_x86_64" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TreeHugger/MapPage.xaml">
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="33.0.95" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TreeHugger/MainTabbedPage.xaml.cs">
     <Files>
-      <File FileName="TreeHugger/MapPage.xaml" Line="9" Column="54" />
-      <File FileName="TreeHugger/MapPage.xaml.cs" />
+      <File FileName="TreeHugger/MapPage.xaml" Line="23" Column="34" />
+      <File FileName="TreeHugger/MapPage.xaml.cs" Line="1" Column="1" />
       <File FileName="TreeHugger/CaptureTreePage.xaml.cs" />
       <File FileName="TreeHugger/Models/DataBase.cs" />
       <File FileName="TreeHugger/Models/BusinessLogic.cs" />
@@ -13,13 +17,18 @@
       <File FileName="TreeHugger/PostDetailsPage.xaml.cs" />
       <File FileName="TreeHugger/Models/Comment.cs" />
       <File FileName="TreeHugger/CaptureTreePage.xaml" />
+      <File FileName="TreeHugger/Platforms/Android/AndroidManifest.xml" Line="10" Column="76" />
+      <File FileName="TreeHugger/MainTabbedPage.xaml.cs" Line="10" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TreeHugger">
-            <Node name="TreeHugger" expanded="True">
-              <Node name="PostDetailsPage.xaml" expanded="True" />
+            <Node name="TreeHugger">
+              <Node name="MainTabbedPage.xaml" expanded="True">
+                <Node name="MainTabbedPage.xaml.cs" selected="True" />
+              </Node>
+              <Node name="MapPage.xaml" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -27,11 +36,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.TreeHugger PreferredExecutionTarget="Android.Pixel_3a_API_34_extension_level_7_x86_64" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_3a_API_34_extension_level_7_x86_64" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.MonoDroid LastDeploySdkVersion="33.0.95" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

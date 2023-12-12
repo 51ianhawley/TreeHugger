@@ -13,9 +13,9 @@
         <maps:Map x:Name="map"
                   x:DataType="model:BusinessLogic"
                   MapType="Street"
-                  IsZoomEnabled="False"
-                  IsScrollEnabled="False"
-                  IsShowingUser="False">
+                  IsZoomEnabled="True"
+                  IsScrollEnabled="True"
+                  IsShowingUser="True">
         </maps:Map>
 
         <!-- Mark tree button (bottom center)-->
