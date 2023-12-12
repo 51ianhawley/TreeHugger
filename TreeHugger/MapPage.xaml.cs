@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 using TreeHugger.Models;
@@ -9,9 +10,23 @@ public partial class MapPage : ContentPage
 {
     public MapPage()
 	{
+        
         InitializeComponent();
+        //persimmsionsAsync();
         MoveMapToCurrentLocation();
         PopulateMapWithPins();
+    }
+    private async void persimmsionsAsync()
+    {
+        PermissionStatus status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+        Console.WriteLine("permission?");
+        if (status != PermissionStatus.Granted)
+        {
+            
+            //DisplayAlert("permisions problem", "its not working", "you failed");
+            Console.WriteLine("permission not granted");
+        }
+
     }
 
     private void PopulateMapWithPins()
@@ -59,13 +74,13 @@ public partial class MapPage : ContentPage
 
         }
     }
-    /// <summary>
-    /// navigates to profile page
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void Canvas_StartInteraction(object sender, TouchEventArgs e)
-    {
-        Navigation.PushAsync(new ProfilePage());
-    }
+    ///// <summary>
+    ///// navigates to profile page
+    ///// </summary>
+    ///// <param name="sender"></param>
+    ///// <param name="e"></param>
+    //private void Canvas_StartInteraction(object sender, TouchEventArgs e)
+    //{
+    //    Navigation.PushAsync(new ProfilePage());
+    //}
 }
