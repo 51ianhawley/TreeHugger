@@ -1,36 +1,24 @@
 ﻿<Properties StartupConfiguration="{DAAF0A3E-E93D-4EEE-A18D-FDF9A5BC1DA3}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.TreeHugger PreferredExecutionTarget="Android.Pixel_3a_API_34_extension_level_7_x86_64" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.MonoDroid LastDeploySdkVersion="33.0.95" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_3a_API_34_extension_level_7_x86_64" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="TreeHugger/MapPage.xaml">
     <Files>
-      <File FileName="TreeHugger/MapPage.xaml" Line="25" Column="56" />
-      <File FileName="TreeHugger/MapPage.xaml.cs" Line="45" Column="51" />
-      <File FileName="TreeHugger/CaptureTreePage.xaml.cs" Line="68" Column="1" />
-      <File FileName="TreeHugger/Models/DataBase.cs" Line="465" Column="6" />
-      <File FileName="TreeHugger/Models/BusinessLogic.cs" Line="22" Column="6" />
-      <File FileName="TreeHugger/Models/TreePin.cs" Line="46" Column="24" />
-      <File FileName="TreeHugger/Models/Tree.cs" Line="1" Column="1" />
-      <File FileName="TreeHugger/Models/Species.cs" Line="1" Column="1" />
-      <File FileName="TreeHugger/PostDetailsPage.xaml" Line="6" Column="50" />
-      <File FileName="TreeHugger/PostDetailsPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="TreeHugger/Models/Comment.cs" Line="1" Column="1" />
-      <File FileName="TreeHugger/CaptureTreePage.xaml" Line="1" Column="1" />
+      <File FileName="TreeHugger/MapPage.xaml" Line="9" Column="54" />
+      <File FileName="TreeHugger/MapPage.xaml.cs" />
+      <File FileName="TreeHugger/CaptureTreePage.xaml.cs" />
+      <File FileName="TreeHugger/Models/DataBase.cs" />
+      <File FileName="TreeHugger/Models/BusinessLogic.cs" />
+      <File FileName="TreeHugger/Models/Tree.cs" />
+      <File FileName="TreeHugger/Models/Species.cs" />
+      <File FileName="TreeHugger/PostDetailsPage.xaml" />
+      <File FileName="TreeHugger/PostDetailsPage.xaml.cs" />
+      <File FileName="TreeHugger/Models/Comment.cs" />
+      <File FileName="TreeHugger/CaptureTreePage.xaml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TreeHugger">
             <Node name="TreeHugger" expanded="True">
-              <Node name="Models" expanded="True" />
-              <Node name="CaptureTreePage.xaml" expanded="True" />
-              <Node name="MapPage.xaml" expanded="True" selected="True" />
               <Node name="PostDetailsPage.xaml" expanded="True" />
             </Node>
           </Node>
@@ -38,4 +26,12 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.TreeHugger PreferredExecutionTarget="Android.Pixel_3a_API_34_extension_level_7_x86_64" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="33.0.95" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -7,9 +7,6 @@
              xmlns:drawable="clr-namespace:TreeHugger.Drawable"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage.Resources>
-        <drawable:StickFigure x:Key="stickFigure" />
-    </ContentPage.Resources>
     <Grid>
         
         <!-- Map (background)-->
@@ -22,8 +19,7 @@
         </maps:Map>
 
         <!-- Mark tree button (bottom center)-->
-        <Button ImageSource="tree.png"
-                Clicked="MarkTreeButton_Clicked"
+        <Button Clicked="MarkTreeButton_Clicked"
                 CornerRadius="60"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="End"
@@ -31,27 +27,5 @@
                 WidthRequest="100"
                 Margin="30" />
 
-         <!-- Profile picture button (top right)-->
-        <GraphicsView Drawable="{StaticResource stickFigure}"
-                              x:Name="Canvas"
-            WidthRequest="100"
-            HeightRequest="100"
-            BackgroundColor="White"
-            HorizontalOptions="End"
-            VerticalOptions="Start"
-            Margin="30"
-            StartInteraction="Canvas_StartInteraction"/>
-        <!--<ImageButton    no longer in use!!!
-            
-            Source="stick_figure.png"
-            Aspect="AspectFill"
-            Clicked="ProfilePictureButton_Clicked"
-            WidthRequest="100"
-            HeightRequest="100"
-            BackgroundColor="White"
-            CornerRadius="50"
-            HorizontalOptions="End"
-            VerticalOptions="Start"
-            Margin="30" />-->
     </Grid>
 </ContentPage>
