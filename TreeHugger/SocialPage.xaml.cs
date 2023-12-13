@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui.Converters;
 using Microsoft.Maui.Controls;
+using System.Text.Json;
 using TreeHugger.Models;
 
 namespace TreeHugger;
@@ -10,7 +11,22 @@ public partial class SocialPage : ContentPage
 	{
         BindingContext = MauiProgram.BusinessLogic;
         InitializeComponent();
-        
+        SetUsername();
+
+    }
+    private async void SetUsername()
+    {
+        string fullPathUsername = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "username");
+
+        string jsonUsername;
+        if (!File.Exists(fullPathUsername))
+        {
+            jsonUsername = JsonSerializer.Serialize(MauiProgram.BusinessLogic.Username);
+            File.WriteAllText(fullPathUsername, jsonUsername);
+        }
+        jsonUsername = File.ReadAllText(fullPathUsername);
+        MauiProgram.BusinessLogic.Username = JsonSerializer.Deserialize<string>(jsonUsername);
+        usernameEntry.Text = MauiProgram.BusinessLogic.Username;
     }
     /// <summary>
     /// navigates to PostDetailsPage with the selected tree
@@ -21,5 +37,15 @@ public partial class SocialPage : ContentPage
     {
         Tree tree = CV.SelectedItem as Tree;
         await Navigation.PushAsync(new PostDetailsPage(tree));
+    }
+    private void UsernameEntry_Completed(object sender, EventArgs e)
+    {
+        MauiProgram.BusinessLogic.Username = usernameEntry.Text;
+        string jsonUsername = JsonSerializer.Serialize(MauiProgram.BusinessLogic.Username);
+        string fullPathUsername = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "username");
+        File.WriteAllText(fullPathUsername, jsonUsername);
+        usernameEntry.Text = String.Empty;
+        usernameEntry.Placeholder = "Your username has been saved as " + MauiProgram.BusinessLogic.Username;
+        usernameLabel.IsVisible = false;
     }
 }

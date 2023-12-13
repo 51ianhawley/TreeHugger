@@ -13,8 +13,11 @@
     </ContentPage.Resources>
     <ScrollView x:Name="scrollview">
     <VerticalStackLayout>
-
-            <CollectionView x:Name="CV" ItemsSource="{Binding Trees}" SelectionMode="Single">
+            <HorizontalStackLayout>
+                <Label x:Name="usernameLabel" Text="Set Your Username:" FontSize="Large"/>
+                <Entry x:Name="usernameEntry" Completed="UsernameEntry_Completed" FontSize="Medium" MaxLength="20"/>
+            </HorizontalStackLayout>
+            <CollectionView x:Name="CV" ItemsSource="{Binding Trees}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Tree">
                         <Border Stroke="#0"
@@ -27,8 +30,7 @@
                         Padding="30,0"
                         VerticalOptions="Start">
                                 <Label Text="{Binding Location}" VerticalTextAlignment="Center"/>
-                                <ImageButton Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Command ="{Binding NavigateToDetailsCommand}"/>
-                                <Button Text="delete" BackgroundColor="BlueViolet" Command="{Binding DeleteCommand}" />
+                                <ImageButton Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" Command ="{Binding NavigateToDetailsCommand}" Aspect="AspectFill" HeightRequest="300" WidthRequest="300"/>
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>

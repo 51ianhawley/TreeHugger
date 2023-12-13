@@ -12,9 +12,9 @@
     </ContentPage.Resources>
     <ScrollView>
     <VerticalStackLayout x:Name="details" x:DataType="model:Tree">
-        <Label Text="{Binding Id}" HorizontalTextAlignment="Center"/>
-        <Label Text="{Binding SpeciesId}" HorizontalTextAlignment="Center"/>
-            <Label x:Name="latLB" Text="{Binding Latitude, StringFormat='Latitude: {0}'}" HorizontalTextAlignment="Center"/>
+        <!--<Label Text="{Binding Location}" HorizontalTextAlignment="Center"/>-->
+        <Label x:Name="SpeciesLabel" Text="{Binding SpeciesId}" HorizontalTextAlignment="Center"/>
+            <!--<Label x:Name="latLB" Text="{Binding Latitude, StringFormat='Latitude: {0}'}" HorizontalTextAlignment="Center"/>-->
             <Label x:Name="longLB" Text="{Binding Longitude, StringFormat='Longitude: {0}'}" HorizontalTextAlignment="Center" />
         <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
     

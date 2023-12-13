@@ -11,9 +11,10 @@ public partial class PostDetailsPage : ContentPage
 		InitializeComponent();
 		BindingContext = tree;
         float longitude = float.Parse(this.tree.Longitude);
-        longLB.Text = "Longitude: "+longitude.ToString("0.000");
         float latitude = float.Parse(this.tree.Latitude);
-        latLB.Text = "Latitude: "+latitude.ToString("0.000");
+        longLB.Text = "Longitude: "+longitude.ToString("0.00")+"\t"+ " Latitude: " + latitude.ToString("0.00");
+        //latLB.Text = "Latitude: "+latitude.ToString("0.00");
+        SpeciesLabel.Text = tree.Location + " is a "+MauiProgram.BusinessLogic.Species[tree.SpeciesId].Name;
     }
 
     private void SendComment_Clicked(object sender, EventArgs e)
