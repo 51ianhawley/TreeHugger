@@ -25,6 +25,7 @@
                 VerticalOptions="End"
                 HeightRequest="100"
                 WidthRequest="100"
-                Margin="30" />
+                Margin="30" 
+                Text="Mark Tree"/>
     </Grid>
 </ContentPage>
