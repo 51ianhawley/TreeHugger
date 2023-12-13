@@ -54,28 +54,14 @@
 	  <MauiXaml Remove="Interfaecs\**" />
 	  <None Remove="Interfaecs\**" />
 	  <None Remove="Resources\Images\" />
-	  <None Remove="Resources\Images\blue_baseball_cap.png" />
-	  <None Remove="Resources\Images\blue_cap.png" />
-	  <None Remove="Resources\Images\scared_face.png" />
-	  <None Remove="Resources\Images\scared_face_hi.png" />
-	  <None Remove="Resources\Images\stick_figure.png" />
 	  <None Remove="Resources\Images\tree.png" />
 	  <None Remove="Resources\Images\write.png" />
 	  <None Remove="Resources\Images\mapIcon.png" />
 	</ItemGroup>
 	<ItemGroup>
-	  <EmbeddedResource Include="Resources\Images\blue_baseball_cap.png" />
-	  <EmbeddedResource Include="Resources\Images\scared_face_hi.png" />
-	  <EmbeddedResource Include="Resources\Images\stick_figure.png" />
-	</ItemGroup>
-	<ItemGroup>
-	  <MauiImage Include="Resources\Images\scared_face.png" />
 	  <MauiImage Include="Resources\Images\tree.png" />
 	  <MauiImage Include="Resources\Images\map_icon.png" />
 	  <MauiImage Include="Resources\Images\write.png" />
-	</ItemGroup>
-	<ItemGroup>
-	  <MauiImage Include="Resources\Images\blue_cap.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -99,21 +85,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="AvatarPage.xaml.cs">
-	    <DependentUpon>AvatarPage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="PostDetailsPage.xaml.cs">
 	    <DependentUpon>PostDetailsPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="ShopPage.xaml.cs">
-	    <DependentUpon>ShopPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="AvatarPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="PostDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

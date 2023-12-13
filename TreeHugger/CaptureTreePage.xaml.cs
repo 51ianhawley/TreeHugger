@@ -64,7 +64,7 @@ public partial class CaptureTreePage : ContentPage
         {
             if (!string.IsNullOrEmpty(_savedImagePath))
             {
-                var newTreeId = MauiProgram.BusinessLogic.DataBase.GetMaxTreeId();
+                var newTreeId = MauiProgram.BusinessLogic.GetMaxTreeId();
                 var comments = new ObservableCollection<Comment>();
                 // Take the image and convert it into bytes to be inserted into the database.
                 byte[] imgBytes;
@@ -76,7 +76,7 @@ public partial class CaptureTreePage : ContentPage
                 }
                 // Code is having an issue that will be resolved by the presentation involving an invocation exception that is being thrown in the Post details page.
                 var newTree = new Tree(newTreeId, pckSpeices.SelectedIndex, "Somewhere", lblLatitudeOutput.Text, lblLongitudeOutput.Text, imgBytes);
-                var result = MauiProgram.BusinessLogic.DataBase.InsertTree(newTree);
+                var result = MauiProgram.BusinessLogic.InsertTree(newTree);
                 //var result = MauiProgram.BusinessLogic.AddTree(newTreeId,
                 //    pckSpeices.SelectedIndex,
                 //    "Out there",

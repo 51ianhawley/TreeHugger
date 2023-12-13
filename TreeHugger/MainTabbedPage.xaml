@@ -21,12 +21,5 @@
                 <local:SocialPage />
             </x:Arguments>
         </NavigationPage>
-
-         <!--Tab for the shop page-->
-        <!--<NavigationPage IconImageSource="map_icon.png">
-            <x:Arguments>
-                <local:AvatarPage />
-            </x:Arguments>
-        </NavigationPage>--> 
     </TabbedPage.Children>
 </TabbedPage>

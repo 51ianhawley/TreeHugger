@@ -11,10 +11,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ScrollView>
-    <VerticalStackLayout x:Name="details" x:DataType="model:Tree">
-        <!--<Label Text="{Binding Location}" HorizontalTextAlignment="Center"/>-->
-        <Label x:Name="SpeciesLabel" Text="{Binding SpeciesId}" HorizontalTextAlignment="Center"/>
-            <!--<Label x:Name="latLB" Text="{Binding Latitude, StringFormat='Latitude: {0}'}" HorizontalTextAlignment="Center"/>-->
+        <VerticalStackLayout x:Name="details" x:DataType="model:Tree">
+            <Label x:Name="SpeciesLabel" Text="{Binding SpeciesId}" HorizontalTextAlignment="Center"/>
             <Label x:Name="longLB" Text="{Binding Longitude, StringFormat='Longitude: {0}'}" HorizontalTextAlignment="Center" />
         <Image Source="{Binding Image, Mode=OneWay, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
     
@@ -43,7 +41,6 @@
                 <Editor x:Name="comment"
                 Placeholder="Leave a comment"
                 HeightRequest="100"/>
-                <!--Completed="Comment_Completed"-->
                 <Button Text="Send Comment" Clicked ="SendComment_Clicked"/>
             </VerticalStackLayout>  
         

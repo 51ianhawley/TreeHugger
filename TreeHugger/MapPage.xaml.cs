@@ -41,10 +41,6 @@ public partial class MapPage : ContentPage
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void ProfilePictureButton_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new ProfilePage());
-    }
     public async void TakePhoto()
     {
         if(MediaPicker.Default.IsCaptureSupported)
@@ -61,13 +57,4 @@ public partial class MapPage : ContentPage
 
         }
     }
-    ///// <summary>
-    ///// navigates to profile page
-    ///// </summary>
-    ///// <param name="sender"></param>
-    ///// <param name="e"></param>
-    //private void Canvas_StartInteraction(object sender, TouchEventArgs e)
-    //{
-    //    Navigation.PushAsync(new ProfilePage());
-    //}
 }

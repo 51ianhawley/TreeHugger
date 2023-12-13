@@ -455,6 +455,11 @@ public class DataBase : IDataBase
         }
         return numDeleted > 0;
     }
+    /// <summary>
+    /// Gets comments for a tree given an id
+    /// </summary>
+    /// <param name="Id">id for tree's comments wanted</param>
+    /// <returns>observableCollection of Comments</returns>
     public ObservableCollection<Comment> GetComments(int Id)
     {
         Tree tree = SelectTree(Id);

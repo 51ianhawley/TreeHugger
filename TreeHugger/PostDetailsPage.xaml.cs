@@ -13,7 +13,6 @@ public partial class PostDetailsPage : ContentPage
         float longitude = float.Parse(this.tree.Longitude);
         float latitude = float.Parse(this.tree.Latitude);
         longLB.Text = "Longitude: "+longitude.ToString("0.00")+"\t"+ " Latitude: " + latitude.ToString("0.00");
-        //latLB.Text = "Latitude: "+latitude.ToString("0.00");
         SpeciesLabel.Text = tree.Location + " is a "+MauiProgram.BusinessLogic.Species[tree.SpeciesId].Name;
     }
 
@@ -22,10 +21,10 @@ public partial class PostDetailsPage : ContentPage
         if (comment.Text != null)
         {
             Comment c = new Comment(comment.Text);
-            MauiProgram.BusinessLogic.DataBase.AddCommentToTree(tree, c);
+            MauiProgram.BusinessLogic.AddCommentToTree(tree, c);
             comment.Placeholder = "comment was saved";
             comment.Text = null;
-            this.tree = MauiProgram.BusinessLogic.DataBase.SelectTree(tree.Id);
+            this.tree = MauiProgram.BusinessLogic.SelectTree(tree.Id);
             comments.BindingContext = this.tree;
         }
         else

@@ -89,7 +89,7 @@ public class Tree : INotifyPropertyChanged
         }
     }
     public ObservableCollection<Comment> Comments { 
-        get { return MauiProgram.BusinessLogic.DataBase.GetComments(this.Id); }
+        get { return MauiProgram.BusinessLogic.GetComments(this.Id); }
     }
     public ICommand NavigateToDetailsCommand { get; }
     public String GetComments()
@@ -107,7 +107,7 @@ public class Tree : INotifyPropertyChanged
 
     public void Delete()
     {
-        MauiProgram.BusinessLogic.DataBase.DeleteTree(this);
+        MauiProgram.BusinessLogic.DeleteTree(this);
     }
     public async void NavigateToDetails()
     {

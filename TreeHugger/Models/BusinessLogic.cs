@@ -84,6 +84,60 @@ public class BusinessLogic
         return TreeAdditionError.NoError;
 
     }
-
+    /// <summary>
+    /// deletes tree from database
+    /// </summary>
+    /// <param name="tree"tree to be deleted</param>
+    /// <returns>returns true if successful</returns>
+    public Boolean DeleteTree(Tree tree)
+    {
+        return DataBase.DeleteTree(tree);
+    }
+    /// <summary>
+    /// Gets an observableCollection of comments for a tree
+    /// </summary>
+    /// <param name="id">id for tree</param>
+    /// <returns>observableCollection of comments</returns>
+    public ObservableCollection<Comment> GetComments(int id)
+    {
+        return DataBase.GetComments(id);
+    }
+    /// <summary>
+    /// Gets id for new tree
+    /// </summary>
+    /// <returns>returns id for new tree</returns>
+    public int GetMaxTreeId()
+    {
+        return DataBase.GetMaxTreeId();
+    }
+    /// <summary>
+    /// inserts a tree into the database
+    /// </summary>
+    /// <param name="newTree">tree to be inserted</param>
+    /// <returns>boolean true if successful</returns>
+    public Boolean InsertTree(Tree newTree)
+    {
+        return DataBase.InsertTree(newTree); 
+    }
+    /// <summary>
+    /// Selects a tree from the database
+    /// </summary>
+    /// <param name="Id">id of tree to be returned</param>
+    /// <returns>Tree based on Id</returns>
+    public Tree SelectTree(int Id)
+    {
+        return DataBase.SelectTree(Id);
+    }
+    /// <summary>
+    /// adds a comment to a tree
+    /// </summary>
+    /// <param name="tree">tree to have comment added</param>
+    /// <param name="comment">comment to be added</param>
+    /// <returns>string of error or worked</returns>
+    /// <returns>string of error or worked</returns>
+    public String AddCommentToTree(Tree tree, Comment comment)
+    {
+        return DataBase.AddCommentToTree(tree, comment);
+    }
 
 }
