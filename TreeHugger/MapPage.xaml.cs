@@ -12,21 +12,8 @@ public partial class MapPage : ContentPage
 	{
         
         InitializeComponent();
-        //persimmsionsAsync();
         MoveMapToCurrentLocation();
         PopulateMapWithPins();
-    }
-    private async void persimmsionsAsync()
-    {
-        PermissionStatus status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-        Console.WriteLine("permission?");
-        if (status != PermissionStatus.Granted)
-        {
-            
-            //DisplayAlert("permisions problem", "its not working", "you failed");
-            Console.WriteLine("permission not granted");
-        }
-
     }
 
     private void PopulateMapWithPins()

@@ -7,18 +7,18 @@
              android:TabbedPage.ToolbarPlacement="Bottom"
              android:TabbedPage.IsSwipePagingEnabled="False">
     <TabbedPage.Children>
-        
-        <!-- Tab for the social page -->
-        <NavigationPage IconImageSource="write.png" >
-            <x:Arguments>
-                <local:SocialPage />
-            </x:Arguments>
-        </NavigationPage>
 
         <!-- Tab for the map page (set as current page to display first) -->
         <NavigationPage IconImageSource="map_icon.png">
             <x:Arguments>
                 <local:MapPage />
+            </x:Arguments>
+        </NavigationPage>
+        
+        <!-- Tab for the social page -->
+        <NavigationPage IconImageSource="write.png" >
+            <x:Arguments>
+                <local:SocialPage />
             </x:Arguments>
         </NavigationPage>
 
