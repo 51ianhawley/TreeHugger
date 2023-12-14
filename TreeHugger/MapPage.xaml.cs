@@ -43,6 +43,11 @@ public partial class MapPage : ContentPage
         map.MoveToRegion(new MapSpan(await location, latitudeDegrees, longitudeDegrees));
     }
 
+    /// <summary>
+    /// Function for when mark tree button is clicked
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private async void MarkTreeButton_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new CaptureTreePage());
