@@ -5,7 +5,8 @@
              xmlns:model="clr-namespace:TreeHugger.Models"
              x:DataType="model:BusinessLogic"
              x:Class="TreeHugger.SocialPage"
-             Title="Social">
+             Title="Social"
+             NavigationPage.HasBackButton="false">
     <ContentPage.Resources>
         <ResourceDictionary>
             <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
