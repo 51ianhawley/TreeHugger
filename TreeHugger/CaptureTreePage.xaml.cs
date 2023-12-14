@@ -29,8 +29,8 @@ public partial class CaptureTreePage : ContentPage
     private async void SetLocationLabels()
     {
         Location location = await LocationServices.GetCurrentLocation();
-        lblLongitudeOutput.Text = location.Longitude.ToString();
-        lblLatitudeOutput.Text = location.Latitude.ToString();
+        lblLongitudeOutput.Text = location.Longitude.ToString().Substring(0,6);
+        lblLatitudeOutput.Text = location.Latitude.ToString().Substring(0, 6);
     }
 
 	private async void btnTakePhoto_Clicked(object sender, EventArgs e)
@@ -75,7 +75,8 @@ public partial class CaptureTreePage : ContentPage
 
                 }
                 // Code is having an issue that will be resolved by the presentation involving an invocation exception that is being thrown in the Post details page.
-                var newTree = new Tree(newTreeId, pckSpeices.SelectedIndex, NameENT.Text, lblLatitudeOutput.Text, lblLongitudeOutput.Text, imgBytes);
+                Location location = await LocationServices.GetCurrentLocation();
+                var newTree = new Tree(newTreeId, pckSpeices.SelectedIndex, NameENT.Text, location.Latitude.ToString(), location.Longitude.ToString(), imgBytes);
                 var result = MauiProgram.BusinessLogic.InsertTree(newTree);
                 //var result = MauiProgram.BusinessLogic.AddTree(newTreeId,
                 //    pckSpeices.SelectedIndex,

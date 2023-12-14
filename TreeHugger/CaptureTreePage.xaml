@@ -10,16 +10,9 @@
             <Label x:Name="lblEnterTree"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            HorizontalTextAlignment="Start"
-            VerticalTextAlignment="Start"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
             Text="To add a tree fill out the following information:"/>
-            <Button x:Name="btnTakePhoto"
-                WidthRequest="200"
-                HeightRequest="75"
-                    Padding="20"
-                Clicked="btnTakePhoto_Clicked"
-                Text="Take Picture of Tree" 
-                BackgroundColor="ForestGreen"/>
             <Grid RowSpacing="50" ColumnSpacing="100"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand">
@@ -37,7 +30,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
-                    
+
                 </Grid.ColumnDefinitions>
                 <Label x:Name="lblName" Text="Name:" Grid.Row="0" Grid.Column="0"/>
                 <Entry Grid.Row="0" Grid.Column="1" x:Name="NameENT" Placeholder="Bob MapleSeed"/>
@@ -51,9 +44,20 @@
                 <Label x:Name="lblLongitude" Grid.Row="4" Grid.Column="0" Text="Longitude:"/>
                 <Label x:Name="lblLongitudeOutput" Grid.Row="4" Grid.Column="1" Text="89.9999"/>
                 <Label x:Name="lblImage" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1"  Text="Image:"/>
-                <Image x:Name="imgTree" Grid.Row="6" Grid.Column="1"  BackgroundColor="Green"/>
+                <Image x:Name="imgTree" Grid.Row="6" Grid.Column="1"/>
             </Grid>
-            <Button Padding="20" WidthRequest="175" HeightRequest="75" x:Name="btnAddTree" Text="Add Tree" Clicked="btnAddTree_Clicked" BackgroundColor="LawnGreen"/>
+            <HorizontalStackLayout Padding="10" Spacing="10">
+                <Button x:Name="btnTakePhoto"
+                WidthRequest="190"
+                HeightRequest="75"
+                    Padding="20"
+                Clicked="btnTakePhoto_Clicked"
+                Text="Take Picture of Tree" 
+                />
+                <Button Padding="20" WidthRequest="190" HeightRequest="75" x:Name="btnAddTree" Text="Add Tree" Clicked="btnAddTree_Clicked"/>
+            </HorizontalStackLayout>
+            
+            
 
         </StackLayout>
     </ScrollView>
