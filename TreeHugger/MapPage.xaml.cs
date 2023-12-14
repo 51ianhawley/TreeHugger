@@ -8,53 +8,43 @@ namespace TreeHugger;
 
 public partial class MapPage : ContentPage
 {
+    private readonly ObservableCollection<Pin> pins = MauiProgram.BusinessLogic.Pins;
+    private readonly Task<Location> location = LocationServices.GetCurrentLocation();
+
     public MapPage()
 	{
-        
         InitializeComponent();
-        MoveMapToCurrentLocation();
-        PopulateMapWithPins();
+        MoveMapToCurrentLocation(map, location, 0.01, 0.01);
+        PopulateMapWithPins(map, pins);
     }
 
-    private void PopulateMapWithPins()
+    /// <summary>
+    /// Populates map with pins
+    /// </summary>
+    /// <param name="map">current map</param>
+    /// <param name="pins">pins to populate</param>
+    private static void PopulateMapWithPins(Microsoft.Maui.Controls.Maps.Map map, ObservableCollection<Pin> pins)
     {
-        ObservableCollection<Pin> pins = MauiProgram.BusinessLogic.Pins;
-
         foreach (Pin pin in pins)
         {
             map.Pins.Add(pin);
         }
     }
 
-    private async void MoveMapToCurrentLocation()
+    /// <summary>
+    /// Move mapspan to current location
+    /// </summary>
+    /// <param name="map">current map</param>
+    /// <param name="location">current location</param>
+    /// <param name="latitudeDegrees">width</param>
+    /// <param name="longitudeDegrees">height</param>
+    private static async void MoveMapToCurrentLocation(Microsoft.Maui.Controls.Maps.Map map, Task<Location> location, double latitudeDegrees, double longitudeDegrees)
     {
-        map.MoveToRegion(new MapSpan(await LocationServices.GetCurrentLocation(), 0.01, 0.01));
+        map.MoveToRegion(new MapSpan(await location, latitudeDegrees, longitudeDegrees));
     }
 
     private async void MarkTreeButton_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new CaptureTreePage());
-        //TakePhoto();
-    }
-    /// <summary>
-    /// no longer in use
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    public async void TakePhoto()
-    {
-        if(MediaPicker.Default.IsCaptureSupported)
-        {
-            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
-            if(photo != null)
-            {
-                string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
-                using Stream sourceStream = await photo.OpenReadAsync();
-                using FileStream localFileStream =  File.OpenWrite(localFilePath);
-                await sourceStream.CopyToAsync(localFileStream);
-                Console.WriteLine("I captured a photo Yipee!!????");
-            }
-
-        }
     }
 }
