@@ -433,6 +433,10 @@ public class DataBase : IDataBase
 
     }
 
+    /// <summary>
+    /// Generates all tree pins for the map page
+    /// </summary>
+    /// <returns></returns>
     public ObservableCollection<Pin> GenerateAllTeePins()
     {
         var conn = new NpgsqlConnection(connString);
