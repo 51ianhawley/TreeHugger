@@ -14,6 +14,9 @@ public partial class SocialPage : ContentPage
         SetUsername();
 
     }
+    /// <summary>
+    /// sets the username in the entry
+    /// </summary>
     private async void SetUsername()
     {
         string fullPathUsername = System.IO.Path.Combine(FileSystem.Current.AppDataDirectory, "username");

@@ -13,12 +13,6 @@ public class BusinessLogic
     {
         get { return dataBase.SelectAllTrees(); }
     }
-
-    public ObservableCollection<Item> Items
-    {
-        get { return dataBase.SelectAllItems(); }
-    }
-
     public ObservableCollection<Pin> Pins
     {
         get { return dataBase.GenerateAllTeePins(); }
@@ -27,8 +21,6 @@ public class BusinessLogic
     {
         get { return dataBase.SelectAllSpecies(); }
     }
-
-    public DataBase DataBase { get { return dataBase; } }
     public String Username { get; set; }
 
     public BusinessLogic()
@@ -91,7 +83,7 @@ public class BusinessLogic
     /// <returns>returns true if successful</returns>
     public Boolean DeleteTree(Tree tree)
     {
-        return DataBase.DeleteTree(tree);
+        return dataBase.DeleteTree(tree);
     }
     /// <summary>
     /// Gets an observableCollection of comments for a tree
@@ -100,7 +92,7 @@ public class BusinessLogic
     /// <returns>observableCollection of comments</returns>
     public ObservableCollection<Comment> GetComments(int id)
     {
-        return DataBase.GetComments(id);
+        return dataBase.GetComments(id);
     }
     /// <summary>
     /// Gets id for new tree
@@ -108,7 +100,7 @@ public class BusinessLogic
     /// <returns>returns id for new tree</returns>
     public int GetMaxTreeId()
     {
-        return DataBase.GetMaxTreeId();
+        return dataBase.GetMaxTreeId();
     }
     /// <summary>
     /// inserts a tree into the database
@@ -117,7 +109,7 @@ public class BusinessLogic
     /// <returns>boolean true if successful</returns>
     public Boolean InsertTree(Tree newTree)
     {
-        return DataBase.InsertTree(newTree); 
+        return dataBase.InsertTree(newTree); 
     }
     /// <summary>
     /// Selects a tree from the database
@@ -126,7 +118,7 @@ public class BusinessLogic
     /// <returns>Tree based on Id</returns>
     public Tree SelectTree(int Id)
     {
-        return DataBase.SelectTree(Id);
+        return dataBase.SelectTree(Id);
     }
     /// <summary>
     /// adds a comment to a tree
@@ -137,7 +129,7 @@ public class BusinessLogic
     /// <returns>string of error or worked</returns>
     public String AddCommentToTree(Tree tree, Comment comment)
     {
-        return DataBase.AddCommentToTree(tree, comment);
+        return dataBase.AddCommentToTree(tree, comment);
     }
 
 }
